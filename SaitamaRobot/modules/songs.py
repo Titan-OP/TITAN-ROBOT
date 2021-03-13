@@ -152,8 +152,8 @@ async def download_video(v_url):
             v_url.chat_id,
             f"{rip_data['id']}.mp4",
             supports_streaming=True,
-            caption=url, f"<b>➥ Song :- <code>{song}</code></b>",
-            parse_mode="html",
+            caption="<b>➥ Song :-</b>", url
+		parse_mode="html",
             progress_callback=lambda d, t: asyncio.get_event_loop(
             ).create_task(
                 progress(d, t, v_url, c_time, "Uploading..",
