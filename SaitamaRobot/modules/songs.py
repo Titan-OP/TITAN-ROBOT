@@ -154,7 +154,7 @@ async def download_video(v_url):
             supports_streaming=True,
             caption="<b>➥ Song :-</b>", url
 		parse_mode="html",
-            progress_callback=lambda d, t: asyncio.get_event_loop(
+		progress_callback=lambda d, t: asyncio.get_event_loop(
             ).create_task(
                 progress(d, t, v_url, c_time, "Uploading..",
                          f"{rip_data['title']}.mp4")))
