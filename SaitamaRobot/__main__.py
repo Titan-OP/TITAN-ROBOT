@@ -75,13 +75,13 @@ def get_readable_time(seconds: int) -> str:
 PM_START_TEXT = """
 Hi {}, my name is {}! 
 I am an Anime themed group management bot.
-Build by weebs for weebs, I specialize in managing anime and similar themed groups.
-You can find my list of available commands with /help.
+Build by weebs for weebs, I specialize in managing anime and similar themed groups.\
+• You can find my list of available commands with /help.
 """
 
 HELP_STRINGS = """
 Hey there! My name is *{}*.
-I'm a Hero For Fun and help admins manage their groups with One Punch! Have a look at the following for an idea of some of \
+I'm Dr Stone & I help admins to manage their groups! Have a look at the following for an idea of some of \
 the things I can help you with.
 
 *Main* commands available:
@@ -100,7 +100,7 @@ And the following:
     "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n",
 )
 
-SAITAMA_IMG = "https://telegra.ph/file/46e6d9dfcb3eb9eae95d9.jpg"
+SAITAMA_IMG = "https://telegra.ph/file/e4b3dc747eb56dca07797.png"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
  You can support the project via [Paypal](ko-fi.com/sawada) or by contacting @Sawada \
@@ -221,37 +221,31 @@ def start(update: Update, context: CallbackContext):
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton(
-                                text="☑️ Add Saitama to your group",
-                                url="t.me/{}?startgroup=true".format(
-                                    context.bot.username
-                                ),
-                            )
-                        ],
-                        [
-                            InlineKeyboardButton(
-                                text="🚑 Support Group",
-                                url=f"https://t.me/{SUPPORT_CHAT}",
-                            ),
-                            InlineKeyboardButton(
-                                text="🔔 Updates Channel",
-                                url="https://t.me/OnePunchUpdates",
-                            ),
-                        ],
-                        [
-                            InlineKeyboardButton(
-                                text="🧾 Getting started guide",
-                                url="https://t.me/OnePunchUpdates/29",
-                            )
-                        ],
-                        [
-                            InlineKeyboardButton(
-                                text="🗄 Source code",
-                                url="https://github.com/AnimeKaizoku/SaitamaRobot",
-                            )
-                        ],
+                        InlineKeyboardButton(
+                            text=" 👑 Summon Me ",
+                            url="t.me/{}?startgroup=true".format(
+                                context.bot.username)),
+                         InlineKeyboardButton(
+                             text=" 🔔 Updates ",
+                             url="https://t.me/SenkuUpdates")
+                     ],
+                     [
+                        InlineKeyboardButton(
+                            text=" ✨ Help ",
+                            url="https://t.me/SenkuRobot?start=help"),
+                         InlineKeyboardButton(
+                            text=" ⚡️ Get Started ",
+                             url="https://t.me/SenkuUpdates/4")        
+                       
+                     ],
+                     [
+                        InlineKeyboardButton(
+                             text=" ❤️ Source Code ",
+                             url="https://github.com/FtSasaki/SenkuRobot")
+                    
                     ]
-                ),
+                   ]
+                )
             )
     else:
         update.effective_message.reply_text(
