@@ -61,7 +61,7 @@ async def download_video(v_url):
     except:
     	return await rkp.edit("`failed to find`")
     type = "audio"
-    await rkp.edit("`Preparing to download...`")
+    await rkp.edit("`Preparing to download...⚡️`")
     if type == "audio":
         opts = {
             'format':
@@ -100,7 +100,7 @@ async def download_video(v_url):
         await rkp.edit(f"`{str(DE)}`")
         return
     except ContentTooShortError:
-        await rkp.edit("`The download content was too short.`")
+        await rkp.edit("`The download content was too short :P`")
         return
     except GeoRestrictedError:
         await rkp.edit(
@@ -156,7 +156,9 @@ async def download_video(v_url):
             progress_callback=lambda d, t: asyncio.get_event_loop(
             ).create_task(
                 progress(d, t, v_url, c_time, "Uploading..",
-                         f"{rip_data['title']}.mp4")))
+                         f"{rip_data['title']}.mp4",
+			 f"<b>➥ Song :- <code>{title}</code></b>",
+                         parse_mode="html")))
         os.remove(f"{rip_data['id']}.mp4")
 
 
