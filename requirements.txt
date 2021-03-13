@@ -33,7 +33,9 @@ cachetools
 ujson
 pretty_errors
 fontTools
+fontTools
 gtts
+pyrogram
 nekos.py
 tswift
 pyowm
@@ -47,4 +49,5 @@ hachoir
 pybase64
 pySmartDL
 validators
+youtube_dl
 html2text
