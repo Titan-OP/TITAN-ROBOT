@@ -49,8 +49,19 @@ def sanitize(update: Update, context: CallbackContext):
         else message.reply_animation
     )
     reply_animation(random.choice(fun_strings.GIFS), caption=f"*Sanitizes {name}*")
-
-
+   
+#plugin by t.me/RCage
+@run_async
+def meme(update: Update, context: CallbackContext):
+    msg = update.effective_message
+    meme = requests.get("https://meme-api.herokuapp.com/gimme/Animemes/").json()
+    image = meme.get("url")
+    caption = meme.get("title")
+    if not image:
+        msg.reply_text("No URL was received from the API!")
+        return
+    msg.reply_photo(
+                photo=image, caption=caption)
 @run_async
 def slap(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
@@ -339,8 +350,10 @@ __help__ = """
  • `/sanitize`*:* always use this before /pat or any contact
  • `/pat`*:* pats a user, or get patted
  • `/8ball`*:* predicts using 8ball method 
+ • `/meme`*:* sends a random meme form reddit `r/animemes`
 """
 
+MEME_HANDLER = DisableAbleCommandHandler("meme", meme)
 SANITIZE_HANDLER = DisableAbleCommandHandler("sanitize", sanitize)
 RUNS_HANDLER = DisableAbleCommandHandler("runs", runs)
 SLAP_HANDLER = DisableAbleCommandHandler("slap", slap)
@@ -356,6 +369,7 @@ TABLE_HANDLER = DisableAbleCommandHandler("table", table)
 SHOUT_HANDLER = DisableAbleCommandHandler("shout", shout)
 WEEBIFY_HANDLER = DisableAbleCommandHandler("weebify", weebify)
 
+dispatcher.add_handler(MEME_HANDLER)
 dispatcher.add_handler(WEEBIFY_HANDLER)
 dispatcher.add_handler(SHOUT_HANDLER)
 dispatcher.add_handler(SANITIZE_HANDLER)
@@ -387,6 +401,7 @@ __command_list__ = [
     "shout",
     "weebify",
     "8ball",
+     "meme",
 ]
 __handlers__ = [
     RUNS_HANDLER,
@@ -403,4 +418,5 @@ __handlers__ = [
     SHOUT_HANDLER,
     WEEBIFY_HANDLER,
     EIGHTBALL_HANDLER,
+    MEME_HANDLER,
 ]
