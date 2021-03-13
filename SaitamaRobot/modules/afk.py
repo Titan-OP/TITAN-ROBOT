@@ -43,6 +43,19 @@ def afk(update: Update, context: CallbackContext):
         pass
 
 
+let TelegramBot = require('node-telegram-bot-api');
+let bot = new TelegramBot(token, {polling: true});
+
+pbot.on('afk', (msg) => {
+    let chatId = msg.chat.id;
+    let botReply = "A response from the bot that will removed after 10 seconds"
+    bot.sendMessage(chatId ,botReply)
+        .then((result) => { setTimeout(() => {
+            bot.deleteMessage(chatId, result.message_id)
+        }, 10 * 1000)})
+        .catch(err => console.log(err))
+}
+       
 @run_async
 def no_longer_afk(update: Update, context: CallbackContext):
     user = update.effective_user
