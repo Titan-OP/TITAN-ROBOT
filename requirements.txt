@@ -34,8 +34,6 @@ ujson
 pretty_errors
 fontTools
 gtts
-pyrogram
-redis
 nekos.py
 tswift
 pyowm
@@ -49,5 +47,4 @@ hachoir
 pybase64
 pySmartDL
 validators
-youtube_dl
 html2text
