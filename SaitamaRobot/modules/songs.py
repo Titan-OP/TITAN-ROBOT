@@ -48,7 +48,7 @@ async def download_video(v_url):
     if not sender.id == me.id:
         rkp = await lazy.reply("`processing...`")
     else:
-    	rkp = await lazy.edit("`processing...`")   
+    	rkp = await lazy.edit("`wi8..! I am finding your song....`")   
     url = v_url.pattern_match.group(1)
     if not url:
          return await rkp.edit("`Error \nusage song <song name>`")
@@ -93,7 +93,7 @@ async def download_video(v_url):
         video = False
         song = True    
     try:
-        await rkp.edit("`Fetching data, please wait..`")
+        await rkp.edit("`yeah..! i found something wi8..🥰`")
         with YoutubeDL(opts) as rip:
             rip_data = rip.extract_info(url)
     except DownloadError as DE:
@@ -152,7 +152,8 @@ async def download_video(v_url):
             v_url.chat_id,
             f"{rip_data['id']}.mp4",
             supports_streaming=True,
-            caption=url,
+            caption=url, f"<b>➥ Song :- <code>{song}</code></b>",
+            parse_mode="html",
             progress_callback=lambda d, t: asyncio.get_event_loop(
             ).create_task(
                 progress(d, t, v_url, c_time, "Uploading..",
@@ -268,7 +269,8 @@ async def download_video(v_url):
             v_url.chat_id,
             f"{rip_data['id']}.mp4",
             supports_streaming=True,
-            caption=rip_data['title'],
+            caption=f"<b>➥ Video :-</b>", rip_data['title'],
+            parse_mode="html",
             progress_callback=lambda d, t: asyncio.get_event_loop(
             ).create_task(
                 progress(d, t, v_url, c_time, "Uploading..",
