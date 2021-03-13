@@ -1,286 +1,237 @@
-# Created by @p_rinc_e
-from pathlib import Path
-import asyncio, time, io, math, os, logging, asyncio, shutil, re, subprocess, json
-from re import findall
-from asyncio import sleep
-from telethon.events import NewMessage
-from telethon.tl.custom import Dialog
-from datetime import datetime as dt
-from pytz import country_names as c_n, country_timezones as c_tz, timezone as tz
-from hachoir.parser import createParser
-import pybase64
-from base64 import b64decode
-from pySmartDL import SmartDL
-from telethon.tl.types import DocumentAttributeVideo, DocumentAttributeAudio
-from telethon import events
+"""
+by  @sandy1709 ( https://t.me/mrconfused  )
+"""
+# songs finder for catuserbot
 
-from SaitamaRobot.event import register
-from SaitamaRobot.utils import progress
+import asyncio
+import base64
+import os
+from pathlib import Path
+
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 from validators.url import url
-from html import unescape
-from urllib.error import HTTPError
-import bs4
-from bs4 import BeautifulSoup
-from youtube_dl import YoutubeDL
 
-from youtube_dl.utils import (DownloadError, ContentTooShortError,
+from . import name_dl, song_dl, video_dl, yt_search
 
-                              ExtractorError, GeoRestrictedError,
-                              MaxDownloadsReached, PostProcessingError,
-                              UnavailableVideoError, XAttrMetadataError)
+# =========================================================== #
+#                           STRINGS                           #
+# =========================================================== #
+SONG_SEARCH_STRING = "<code>wi8..! I am finding your song....</code>"
+SONG_NOT_FOUND = "<code>Sorry !I am unable to find any song like that</code>"
+SONG_SENDING_STRING = "<code>yeah..! i found something wi8..🥰...</code>"
+SONGBOT_BLOCKED_STRING = "<code>Please unblock @songdl_bot and try again</code>"
+# =========================================================== #
+#                                                             #
+# =========================================================== #
 
-try:
 
-   from youtubesearchpython import SearchVideos 
-
-except:
-	os.system("pip install pip install youtube-search-python")
-	from youtubesearchpython import SearchVideos 
-	pass
-
-@register(pattern="^/song (.*)")
-async def download_video(v_url):
-
-    lazy = v_url ; sender = await lazy.get_sender() ; me = await lazy.client.get_me()
-
-    if not sender.id == me.id:
-        rkp = await lazy.reply("`processing...`")
+@pbot.on(admin_cmd(pattern="(song|song320)($| (.*))"))
+@pbot.on(sudo_cmd(pattern="(song|song320)($| (.*))", allow_sudo=True))
+async def _(event):
+    if event.fwd_from:
+        return
+    reply_to_id = await reply_id(event)
+    reply = await event.get_reply_message()
+    if event.pattern_match.group(2):
+        query = event.pattern_match.group(2)
+    elif reply:
+        if reply.message:
+            query = reply.message
     else:
-    	rkp = await lazy.edit("`processing...`")   
-    url = v_url.pattern_match.group(1)
-    if not url:
-         return await rkp.edit("`Error \nusage song <song name>`")
-    search = SearchVideos(url, offset = 1, mode = "json", max_results = 1)
-    test = search.result()
-    p = json.loads(test)
-    q = p.get('search_result')
-    try:
-       url = q[0]['link']
-    except:
-    	return await rkp.edit("`failed to find`")
-    type = "audio"
-    await rkp.edit("`Preparing to download...`")
-    if type == "audio":
-        opts = {
-            'format':
-            'bestaudio',
-            'addmetadata':
-            True,
-            'key':
-            'FFmpegMetadata',
-            'writethumbnail':
-            True,
-            'prefer_ffmpeg':
-            True,
-            'geo_bypass':
-            True,
-            'nocheckcertificate':
-            True,
-            'postprocessors': [{
-                'key': 'FFmpegExtractAudio',
-                'preferredcodec': 'mp3',
-                'preferredquality': '320',
-            }],
-            'outtmpl':
-            '%(id)s.mp3',
-            'quiet':
-            True,
-            'logtostderr':
-            False
-        }
-        video = False
-        song = True    
-    try:
-        await rkp.edit("`Fetching data, please wait..`")
-        with YoutubeDL(opts) as rip:
-            rip_data = rip.extract_info(url)
-    except DownloadError as DE:
-        await rkp.edit(f"`{str(DE)}`")
+        await edit_or_reply(event, "`What I am Supposed to find `")
         return
-    except ContentTooShortError:
-        await rkp.edit("`The download content was too short.`")
-        return
-    except GeoRestrictedError:
-        await rkp.edit(
-            "`Video is not available from your geographic location due to geographic restrictions imposed by a website.`"
+    cat = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
+    catevent = await edit_or_reply(event, "`wi8..! I am finding your song....`")
+    video_link = await yt_search(str(query))
+    if not url(video_link):
+        return await catevent.edit(
+            f"Sorry!. I can't find any related video/audio for `{query}`"
         )
-        return
-    except MaxDownloadsReached:
-        await rkp.edit("`Max-downloads limit has been reached.`")
-        return
-    except PostProcessingError:
-        await rkp.edit("`There was an error during post processing.`")
-        return
-    except UnavailableVideoError:
-        await rkp.edit("`Media is not available in the requested format.`")
-        return
-    except XAttrMetadataError as XAME:
-        await rkp.edit(f"`{XAME.code}: {XAME.msg}\n{XAME.reason}`")
-        return
-    except ExtractorError:
-        await rkp.edit("`There was an error during info extraction.`")
-        return
-    except Exception as e:
-        await rkp.edit(f"{str(type(e)): {str(e)}}")
-        return
-    c_time = time.time()
-    if song:
-        await rkp.edit(f"`Preparing to upload song:`\
-        \n**{rip_data['title']}**\
-        \nby *{rip_data['uploader']}*")
-        await v_url.client.send_file(
-            v_url.chat_id,
-            f"{rip_data['id']}.mp3",
-            supports_streaming=True,
-            attributes=[
-                DocumentAttributeAudio(duration=int(rip_data['duration']),
-                                       title=str(rip_data['title']),
-                                       performer=str(rip_data['uploader']))
-            ],
-            progress_callback=lambda d, t: asyncio.get_event_loop(
-            ).create_task(
-                progress(d, t, v_url, c_time, "Uploading..",
-                         f"{rip_data['title']}.mp3")))
-        os.remove(f"{rip_data['id']}.mp3")
-    elif video:
-        await rkp.edit(f"`Preparing to upload song :`\
-        \n**{rip_data['title']}**\
-        \nby *{rip_data['uploader']}*")
-        await v_url.client.send_file(
-            v_url.chat_id,
-            f"{rip_data['id']}.mp4",
-            supports_streaming=True,
-            caption=url,
-            progress_callback=lambda d, t: asyncio.get_event_loop(
-            ).create_task(
-                progress(d, t, v_url, c_time, "Uploading..",
-                         f"{rip_data['title']}.mp4")))
-        os.remove(f"{rip_data['id']}.mp4")
+    cmd = event.pattern_match.group(1)
+    if cmd == "song":
+        q = "128k"
+    elif cmd == "song320":
+        q = "320k"
+    song_cmd = song_dl.format(QUALITY=q, video_link=video_link)
+    # thumb_cmd = thumb_dl.format(video_link=video_link)
+    name_cmd = name_dl.format(video_link=video_link)
+    try:
+        cat = Get(cat)
+        await event.client(cat)
+    except BaseException:
+        pass
+    stderr = (await _catutils.runcmd(song_cmd))[1]
+    if stderr:
+        return await catevent.edit(f"**Error :** `{stderr}`")
+    catname, stderr = (await _catutils.runcmd(name_cmd))[:2]
+    if stderr:
+        return await catevent.edit(f"**Error :** `{stderr}`")
+    # stderr = (await runcmd(thumb_cmd))[1]
+    catname = os.path.splitext(catname)[0]
+    # if stderr:
+    #    return await catevent.edit(f"**Error :** `{stderr}`")
+    song_file = Path(f"{catname}.mp3")
+    if not os.path.exists(song_file):
+        return await catevent.edit(
+            f"Sorry!. I can't find any related video/audio for `{query}`"
+        )
+    await catevent.edit("`yeah..! i found something wi8..🥰`")
+    catthumb = Path(f"{catname}.jpg")
+    if not os.path.exists(catthumb):
+        catthumb = Path(f"{catname}.webp")
+    elif not os.path.exists(catthumb):
+        catthumb = None
+
+    await event.client.send_file(
+        event.chat_id,
+        song_file,
+        force_document=False,
+        caption=query,
+        thumb=catthumb,
+        supports_streaming=True,
+        reply_to=reply_to_id,
+    )
+    await catevent.delete()
+    for files in (catthumb, song_file):
+        if files and os.path.exists(files):
+            os.remove(files)
 
 
-@register(pattern="^/video (.*)")
-async def download_video(v_url):  
-    lazy = v_url ; sender = await lazy.get_sender() ; me = await lazy.client.get_me()
-    if not sender.id == me.id:
-        rkp = await lazy.reply("`processing...`")
+async def delete_messages(event, chat, from_message):
+    itermsg = event.client.iter_messages(chat, min_id=from_message.id)
+    msgs = [from_message.id]
+    async for i in itermsg:
+        msgs.append(i.id)
+    await event.client.delete_messages(chat, msgs)
+    await event.client.send_read_acknowledge(chat)
+
+
+@pbot.on(admin_cmd(pattern="vsong( (.*)|$)"))
+@pbot.on(sudo_cmd(pattern="vsong( (.*)|$)", allow_sudo=True))
+async def _(event):
+    if event.fwd_from:
+        return
+    reply_to_id = await reply_id(event)
+    reply = await event.get_reply_message()
+    if event.pattern_match.group(1):
+        query = event.pattern_match.group(1)
+    elif reply:
+        if reply.message:
+            query = reply.messag
     else:
-    	rkp = await lazy.edit("`processing...`")   
-    url = v_url.pattern_match.group(1)
-    if not url:
-         return await rkp.edit("`Error \nusage song <song name>`")
-    search = SearchVideos(url, offset = 1, mode = "json", max_results = 1)
-    test = search.result()
-    p = json.loads(test)
-    q = p.get('search_result')
-    try:
-       url = q[0]['link']
-    except:
-    	return await rkp.edit("`failed to find`")
-    type = "audio"
-    await rkp.edit("`Preparing to download...`")
-    if type == "audio":
-        opts = {
-            'format':
-            'best',
-            'addmetadata':
-            True,
-            'key':
-            'FFmpegMetadata',
-            'prefer_ffmpeg':
-            True,
-            'geo_bypass':
-            True,
-            'nocheckcertificate':
-            True,
-            'postprocessors': [{
-                'key': 'FFmpegVideoConvertor',
-                'preferedformat': 'mp4'
-            }],
-            'outtmpl':
-            '%(id)s.mp4',
-            'logtostderr':
-            False,
-            'quiet':
-            True
-        }
-        song = False
-        video = True
-    try:
-        await rkp.edit("`Fetching data, please wait..`")
-        with YoutubeDL(opts) as rip:
-            rip_data = rip.extract_info(url)
-    except DownloadError as DE:
-        await rkp.edit(f"`{str(DE)}`")
+        event = await edit_or_reply(event, "What I am Supposed to find")
         return
-    except ContentTooShortError:
-        await rkp.edit("`The download content was too short.`")
-        return
-    except GeoRestrictedError:
-        await rkp.edit(
-            "`Video is not available from your geographic location due to geographic restrictions imposed by a website.`"
+    cat = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
+    catevent = await edit_or_reply(event, "`wi8..! I am finding your song....`")
+    video_link = await yt_search(str(query))
+    if not url(video_link):
+        return await catevent.edit(
+            f"Sorry!. I can't find any related video/audio for `{query}`"
         )
-        return
-    except MaxDownloadsReached:
-        await rkp.edit("`Max-downloads limit has been reached.`")
-        return
-    except PostProcessingError:
-        await rkp.edit("`There was an error during post processing.`")
-        return
-    except UnavailableVideoError:
-        await rkp.edit("`Media is not available in the requested format.`")
-        return
-    except XAttrMetadataError as XAME:
-        await rkp.edit(f"`{XAME.code}: {XAME.msg}\n{XAME.reason}`")
-        return
-    except ExtractorError:
-        await rkp.edit("`There was an error during info extraction.`")
-        return
-    except Exception as e:
-        await rkp.edit(f"{str(type(e)): {str(e)}}")
-        return
-    c_time = time.time()
-    if song:
-        await rkp.edit(f"`Preparing to upload song `\
-        \n**{rip_data['title']}**\
-        \nby *{rip_data['uploader']}*")
-        await v_url.client.send_file(
-            v_url.chat_id,
-            f"{rip_data['id']}.mp3",
-            supports_streaming=True,
-            attributes=[
-                DocumentAttributeAudio(duration=int(rip_data['duration']),
-                                       title=str(rip_data['title']),
-                                       performer=str(rip_data['uploader']))
-            ],
-            progress_callback=lambda d, t: asyncio.get_event_loop(
-            ).create_task(
-                progress(d, t, v_url, c_time, "Uploading..",
-                         f"{rip_data['title']}.mp3")))
-        os.remove(f"{rip_data['id']}.mp3")
-        await v_url.delete()
-    elif video:
-        await rkp.edit(f"`Preparing to upload video song :`\
-        \n**{rip_data['title']}**\
-        \nby *{rip_data['uploader']}*")
-        await v_url.client.send_file(
-            v_url.chat_id,
-            f"{rip_data['id']}.mp4",
-            supports_streaming=True,
-            caption=rip_data['title'],
-            progress_callback=lambda d, t: asyncio.get_event_loop(
-            ).create_task(
-                progress(d, t, v_url, c_time, "Uploading..",
-                         f"{rip_data['title']}.mp4")))
-        os.remove(f"{rip_data['id']}.mp4")
-        await rkp.delete()
+    # thumb_cmd = thumb_dl.format(video_link=video_link)
+    name_cmd = name_dl.format(video_link=video_link)
+    video_cmd = video_dl.format(video_link=video_link)
+    stderr = (await _catutils.runcmd(video_cmd))[1]
+    if stderr:
+        return await catevent.edit(f"**Error :** `{stderr}`")
+    catname, stderr = (await _catutils.runcmd(name_cmd))[:2]
+    if stderr:
+        return await catevent.edit(f"**Error :** `{stderr}`")
+    # stderr = (await runcmd(thumb_cmd))[1]
+    try:
+        cat = Get(cat)
+        await event.client(cat)
+    except BaseException:
+        pass
+    # if stderr:
+    #    return await catevent.edit(f"**Error :** `{stderr}`")
+    catname = os.path.splitext(catname)[0]
+    vsong_file = Path(f"{catname}.mp4")
+    if not os.path.exists(vsong_file):
+        vsong_file = Path(f"{catname}.mkv")
+    elif not os.path.exists(vsong_file):
+        return await catevent.edit(
+            f"Sorry!. I can't find any related video/audio for `{query}`"
+        )
+    await catevent.edit("`yeah..! i found something wi8..🥰`")
+    catthumb = Path(f"{catname}.jpg")
+    if not os.path.exists(catthumb):
+        catthumb = Path(f"{catname}.webp")
+    elif not os.path.exists(catthumb):
+        catthumb = None
+    await event.client.send_file(
+        event.chat_id,
+        vsong_file,
+        force_document=False,
+        caption=query,
+        thumb=catthumb,
+        supports_streaming=True,
+        reply_to=reply_to_id,
+    )
+    await catevent.delete()
+    for files in (catthumb, vsong_file):
+        if files and os.path.exists(files):
+            os.remove(files)
 
 
-__help__ = """
- • /song <songname artist(optional)>: uploads the song in it's best quality available
+@pbot.on(admin_cmd(pattern="song2 (.*)"))
+@pbot.on(sudo_cmd(pattern="song2 (.*)", allow_sudo=True))
+async def cat_song_fetcer(event):
+    if event.fwd_from:
+        return
+    song = event.pattern_match.group(1)
+    chat = "@songdl_bot"
+    reply_id_ = await reply_id(event)
+    catevent = await edit_or_reply(event, SONG_SEARCH_STRING, parse_mode="html")
+    async with event.client.conversation(chat) as conv:
+        try:
+            purgeflag = await conv.send_message("/start")
+            await conv.get_response()
+            await conv.send_message(song)
+            hmm = await conv.get_response()
+            while hmm.edit_hide != True:
+                await asyncio.sleep(0.1)
+                hmm = await event.client.get_messages(chat, ids=hmm.id)
+            baka = await event.client.get_messages(chat)
+            if baka[0].message.startswith(
+                ("I don't like to say this but I failed to find any such song.")
+            ):
+                await delete_messages(event, chat, purgeflag)
+                return await edit_delete(
+                    catevent, SONG_NOT_FOUND, parse_mode="html", time=5
+                )
+            await catevent.edit(SONG_SENDING_STRING, parse_mode="html")
+            await baka[0].click(0)
+            await conv.get_response()
+            await conv.get_response()
+            music = await conv.get_response()
+            await event.client.send_read_acknowledge(conv.chat_id)
+        except YouBlockedUserError:
+            await catevent.edit(SONGBOT_BLOCKED_STRING, parse_mode="html")
+            return
+        await event.client.send_file(
+            event.chat_id,
+            music,
+            caption=f"<b>➥ Song :- <code>{song}</code></b>",
+            parse_mode="html",
+            reply_to=reply_id_,
+        )
+        await catevent.delete()
+        await delete_messages(event, chat, purgeflag)
 
- • /video <songname artist(optional)>: uploads the video song in it's best quality available
-"""
 
-__mod_name__ = "Songs"
+CMD_HELP.update(
+    {
+        "songs": "**Plugin : **`songs`\
+        \n\n•**Syntax : **`.song <query/reply>`\
+        \n•**Function : **__searches the song you entered in query from youtube and sends it, quality of it is 128k__\
+        \n\n•**Syntax : **`.song320 <query/reply>`\
+        \n•**Function : **__searches the song you entered in query from youtube and sends it quality of it is 320k__\
+        \n\n•**Syntax : **`.vsong <query/reply>`\
+        \n•**Function : **__Searches the video song you entered in query and sends it__\
+        \n\n•**Syntax : **`.song2 query`\
+        \n•**Function : **__searches the song you entered in query and sends it quality of it is 320k__\
+        "
+    }
+)
