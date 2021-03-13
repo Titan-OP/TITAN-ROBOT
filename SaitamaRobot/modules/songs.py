@@ -154,9 +154,7 @@ async def download_video(v_url):
             progress_callback=lambda d, t: asyncio.get_event_loop(
             ).create_task(
                 progress(d, t, v_url, c_time, "Uploading..",
-                         f"{rip_data['title']}.mp4
-			 \n**{rip_data['title']}**\
-                         \nby *{rip_data['uploader']}*"
+                         f"{rip_data['title']}.mp4 \n**{rip_data['title']}**\ \nby *{rip_data['uploader']}*",
 			 caption=f"<b>➥ Song :- <code>{title}</code></b>",
                          parse_mode="html")))
         os.remove(f"{rip_data['id']}.mp4")
