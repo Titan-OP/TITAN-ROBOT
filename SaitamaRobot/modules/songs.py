@@ -157,7 +157,7 @@ async def download_video(v_url):
             ).create_task(
                 progress(d, t, v_url, c_time, "Uploading..",
                          f"{rip_data['title']}.mp4",
-			 f"<b>➥ Song :- <code>{title}</code></b>",
+			 caption=f"<b>➥ Song :- <code>{title}</code></b>",
                          parse_mode="html")))
         os.remove(f"{rip_data['id']}.mp4")
 
