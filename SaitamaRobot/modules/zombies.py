@@ -1,4 +1,4 @@
-import asyncio
+
 from asyncio import sleep
 
 from telethon import events
@@ -6,7 +6,7 @@ from telethon.errors import ChatAdminRequiredError, UserAdminInvalidError
 from telethon.tl.functions.channels import EditBannedRequest
 from telethon.tl.types import ChatBannedRights, ChannelParticipantsAdmins
 
-from SaitamaRobot import telethn, OWNER_ID, DEV_USERS, DRAGONS, TIGERS
+from SaitamaRobot import client, OWNER_ID, DEV_USERS, SUDO_USERS, SUPPORT_USERS
 
 # =================== CONSTANT ===================
 
@@ -34,12 +34,12 @@ UNBAN_RIGHTS = ChatBannedRights(
     embed_links=None,
 )
 
-OFFICERS = [OWNER_ID] + DEV_USERS + DRAGONS + TIGERS
+OFFICERS = [OWNER_ID] + DEV_USERS + SUDO_USERS + SUPPORT_USERS
 
 # Check if user has admin rights
 async def is_administrator(user_id: int, message):
     admin = False
-    async for user in telethn.iter_participants(
+    async for user in client.iter_participants(
         message.chat_id, filter=ChannelParticipantsAdmins
     ):
         if user_id == user.id or user_id in OFFICERS:
@@ -49,7 +49,7 @@ async def is_administrator(user_id: int, message):
 
 
 
-@telethn.on(events.NewMessage(pattern=f"^[!/]zombies ?(.*)"))
+@client.on(events.NewMessage(pattern="^[!/]zombies ?(.*)"))
 async def zombies(event):
     """ For .zombies command, list all the zombies in a chat. """
 
@@ -66,7 +66,7 @@ async def zombies(event):
                 await sleep(1)
         if del_u > 0:
             del_status = f"Found **{del_u}** Zombies In This Group.\
-            \nClean Them By Using :-\n 👉 `/zombies clean`"
+            \nClean Them By Using - `/zombies clean`"
         await find_zombies.edit(del_status)
         return
 
@@ -76,11 +76,10 @@ async def zombies(event):
     creator = chat.creator
 
     # Well
-    
     if not await is_administrator(user_id=event.from_id, message=event):
         await event.respond("You're Not An Admin!")
         return
-    
+
     if not admin and not creator:
         await event.respond("I Am Not An Admin Here!")
         return
