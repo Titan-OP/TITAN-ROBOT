@@ -41,7 +41,7 @@
 
 Senku is a simple senku solution to your group management needs and has become one of the most prominently kanged bots around telegram, purely weeab themed.
 
-* Bot Link:  <a href="https://telegram.dog/senkurobot" alt="Senku Robot"> <img src="https://img.shields.io/badge/%F0%9F%A4%96%20-senkurobot-blue" /> </a>
+* Bot Link:  <a href="https://telegram.dog/senkurobot" alt="Senku Robot"> <img src="https://img.shields.io/badge/%F0%9F%A4%96%20-SenkuRobot-blue" /> </a>
 * News channel: <a  href="https://telegram.dog/SenkuUpdates" alt="Senku Updates"> <img  src="https://img.shields.io/badge/%F0%9F%92%A1-Senku%20Updates-9cf" /> </a>
 
 Should you be forking this repo then do not forget to star it - <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/ftsasaki/senkurobot?color=white&label=%F0%9F%8C%9F%20star">
