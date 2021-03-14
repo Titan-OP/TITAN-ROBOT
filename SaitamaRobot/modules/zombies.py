@@ -8,27 +8,6 @@ from telethon.tl.types import ChatBannedRights, ChannelParticipantsAdmins
 
 from SaitamaRobot import telethn, OWNER_ID, DEV_USERS, DRAGONS, TIGERS
 
-# Adding some stuff to test this sh** this
-
-from SaitamaRobot import DRAGONS, dispatcher
-from SaitamaRobot.modules.disable import DisableAbleCommandHandler
-from SaitamaRobot.modules.helper_funcs.chat_status import (
-    bot_admin,
-    can_pin,
-    can_promote,
-    connection_status,
-    user_admin,
-    ADMIN_CACHE,
-)
-
-from SaitamaRobot.modules.helper_funcs.extraction import (
-    extract_user,
-    extract_user_and_text,
-)
-from SaitamaRobot.modules.log_channel import loggable
-from SaitamaRobot.modules.helper_funcs.alternate import send_message
-
-
 # =================== CONSTANT ===================
 
 BANNED_RIGHTS = ChatBannedRights(
@@ -55,12 +34,21 @@ UNBAN_RIGHTS = ChatBannedRights(
     embed_links=None,
 )
 
-@run_async
-@connection_status
-@bot_admin
-@can_promote
-@user_admin
-@loggable
+OFFICERS = [OWNER_ID] + DEV_USERS + DRAGONS + TIGERS
+
+# Check if user has admin rights
+async def is_administrator(user_id: int, message):
+    admin = False
+    async for user in telethn.iter_participants(
+        message.chat_id, filter=ChannelParticipantsAdmins
+    ):
+        if user_id == user.id or user_id in OFFICERS:
+            admin = True
+            break
+    return admin
+
+
+
 @telethn.on(events.NewMessage(pattern=f"^[!/]zombies ?(.*)"))
 async def zombies(event):
     """ For .zombies command, list all the zombies in a chat. """
@@ -88,16 +76,14 @@ async def zombies(event):
     creator = chat.creator
 
     # Well
-    promoter = chat.get_member(user.id)
-
-    if (
-        not (promoter.can_promote_members or promoter.status == "creator")
-        and user.id not in DRAGONS
-    ):
-        message.reply_text("You don't have the necessary rights to do that!")
+    
+    if not await is_administrator(user_id=event.from_id, message=event):
+        await event.respond("You're Not An Admin!")
         return
-
-    user_id = extract_user(message, args)
+    
+    if not admin and not creator:
+        await event.respond("I Am Not An Admin Here!")
+        return
 
     cleaning_zombies = await event.respond("Cleaning Zombies...")
     del_u = 0
