@@ -1,5 +1,6 @@
 __help__ = f"""
-🎲 *Commands* *:*` 
+*Available Commands* *:*
+
 *Plet*:
 • `/plet` *:* text get funny emojify
 *Image Search*:
