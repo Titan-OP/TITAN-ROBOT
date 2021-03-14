@@ -11,7 +11,7 @@
 <p align="center">
 <a href="https://app.codacy.com/gh/FtSasaki/SenkuRobot?utm_source=github.com&utm_medium=referral&utm_content=FtSasaki/SenkuRobot&utm_campaign=Badge_Grade_Settings" alt="Codacy Badge">
 <img src="https://api.codacy.com/project/badge/Grade/6141417ceaf84545bab6bd671503df51" /> </a>
-<a href="https://github.com/FtSasaki/SenkuRobot" alt="Libraries.io dependency status for GitHub repo"> <img src="https://img.shields.io/librariesio/github/FtSasaki/SenkuRobot" /></a>
+<a href="https://github.com/FtSasaki/SenkuRobot" alt="Libraries.io dependency status for GitHub repo"> <img src="https://img.shields.io/librariesio/github/ftsasaki/SenkuRobot" /> </a>
 <a href="http://hits.dwyl.com/FtSasaki/SenkuRobot" alt="HitCount"> <img src="http://hits.dwyl.com/FtSasaki/SenkuRobot.svg" /> </a>
 </p>
 <p align="center">
