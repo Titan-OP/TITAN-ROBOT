@@ -168,7 +168,17 @@
          "description": "ID of the sticker you want to use when banning people.",
          "required": false,
          "value": "CAACAgQAAx0CU_rCTAABAczQXyBOv1TsVK4EfwnkCUT1H0GCkPQAAtwAAwEgTQaYsMtAltpEwhoE"
-      },
+   },
+    "IBM_WATSON_CRED_URL": {
+      "description": "for using speech to text u need IBM's API, get your credentials from dataplatform.cloud.ibm.com/",
+         "required": false,
+         "value": "-xyz"
+   },      
+    "IBM_WATSON_CRED_PASSWORD": {
+      "description": "for using speech to text u need IBM's API, get your credentials from dataplatform.cloud.ibm.com/",
+         "required": false,
+         "value": "-xyz"
+   },            
       "WALL_API": {
          "description": "Required for wallpaper. Get your's from https://wall.alphacoders.com/",
          "required": false,
