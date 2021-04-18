@@ -92,7 +92,7 @@ HELP_STRINGS = """
     "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n",
 )
 
-SAITAMA_IMG = "https://telegra.ph/file/e4b3dc747eb56dca07797.png"
+SAITAMA_IMG = "https://telegra.ph/file/cf3998ca2b4063879d849.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
  You can support the project via [Paypal](ko-fi.com/sawada) or by contacting @Sawada \
@@ -618,7 +618,7 @@ def main():
 
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "Get Excited OwO I am Online!")
+            dispatcher.bot.sendMessage(f"@nezukosupport1", "Get Excited OwO I am Online!")
         except Unauthorized:
             LOGGER.warning(
                 "Bot isnt able to send message to support_chat, go and check!"
