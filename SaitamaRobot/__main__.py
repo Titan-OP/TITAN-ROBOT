@@ -73,20 +73,19 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-Hi {}, my name is {}! 
-I am an Anime themed group management bot.
-Build by weebs for weebs, I specialize in managing anime and similar themed groups.
-You can find my list of available commands with /help.
+Hey there {}! My name is *{}*
+I'm here to help you to manage your group easily (~_^)
+Just add me to your group,by clicking the button below.
 """
 
 HELP_STRINGS = """
-*Main* commands available [:](https://telegra.ph/file/418fe04d27f1fb02788e3.png)
+*Main* commands available [:](https://telegra.ph/file/5dac823edd011f3d2edbb.jpg)
 
- • /help: PM's you this message.
- • /help <module name>: PM's you info about that module.
- • /settings:
-   • in PM: will send you your settings for all supported modules.
-   • in a group: will redirect you to pm, with all that chat's settings.
+ ➥ /help: PM's you this message.
+ ➥ /help <module name>: PM's you info about that module.
+ ➥ /settings:
+   ➥ in PM: will send you your settings for all supported modules.
+   ➥ in a group: will redirect you to pm, with all that chat's settings.
 """.format(
     dispatcher.bot.first_name,
     "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n",
@@ -214,34 +213,29 @@ def start(update: Update, context: CallbackContext):
                     [
                         [
                         InlineKeyboardButton(
-                            text=" 👑 Summon Me ",
+                            text=" add Nezuko to your group  ",
                             url="t.me/{}?startgroup=true".format(
                                 context.bot.username)),
                          InlineKeyboardButton(
-                             text=" 🔔 Updates ",
-                             url="https://t.me/SenkuUpdates")
+                             text=" Updates ",
+                             url="https://t.me/nezukoupdates1")
                      ],
                      [
                         InlineKeyboardButton(
-                            text=" ✨ Help ",
-                            url="https://t.me/SenkuRobot?start=help"),
+                            text=" Help ",
+                            url="https://t.me/Nezuko13_bot?start=help"),
                          InlineKeyboardButton(
-                            text=" ⚡️ Get Started ",
-                             url="https://t.me/SenkuUpdates/4")        
+                            text=" source code  ",
+                             url="https://github.com/kanekiken1399/senku2020")        
                        
-                     ],
-                     [
-                        InlineKeyboardButton(
-                             text=" ❤️ Source Code ",
-                             url="https://github.com/FtSasaki/SenkuRobot")
-                    
-                    ]
+                     ]
                    ]
                 )
             )
+                     
     else:
         update.effective_message.reply_text(
-            "I'm awake already!\n<b>Haven't slept since:</b> <code>{}</code>".format(
+            "I'm awake already⚡⚡\n<b>Haven't slept since✨:</b> <code>{}</code>".format(
                 uptime
             ),
             parse_mode=ParseMode.HTML,
@@ -618,7 +612,7 @@ def main():
 
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.sendMessage(f"@nezukosupport1", "Get Excited OwO I am Online!")
+            dispatcher.bot.sendMessage(f"@nezukosupport1", "OwO,I am Online^_^")
         except Unauthorized:
             LOGGER.warning(
                 "Bot isnt able to send message to support_chat, go and check!"
