@@ -227,7 +227,6 @@ def start(update: Update, context: CallbackContext):
                          InlineKeyboardButton(
                             text=" source code  ",
                              url="https://github.com/kanekiken1399/senku2020")        
-                       
                      ]
                    ]
                 )
