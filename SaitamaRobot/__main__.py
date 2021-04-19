@@ -213,26 +213,26 @@ def start(update: Update, context: CallbackContext):
                     [
                         [
                         InlineKeyboardButton(
-                            text=" 👑 Summon Me ",
-                            url="t.me/{}?startgroup=true".format(
+                            text=" add nezuko to group  ",
+                            url="t.me/nezuko13_bot?startgroup=true".format(
                                 context.bot.username)),
                          InlineKeyboardButton(
-                             text=" 🔔 Updates ",
+                             text=" Updates ",
                              url="https://t.me/NezukoUpdates1")
                      ],
                      [
                         InlineKeyboardButton(
-                            text=" ✨ Help ",
+                            text=" Help ",
                             url="https://t.me/nezuko13_bot?start=help"),
                          InlineKeyboardButton(
-                            text=" Anime Kraze ",
+                            text=" Network ",
                              url="https://t.me/AnimeKraze")        
                        
                      ],
                      [
                         InlineKeyboardButton(
-                             text=" ❤️ Source Code ",
-                             url="https://github.com/kanekiken44/Senku2020")
+                             text=" support  ",
+                             url="https://t.me/nezukosupport1")
                     
                     ]
                    ]
