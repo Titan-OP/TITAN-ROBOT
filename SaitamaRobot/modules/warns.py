@@ -55,7 +55,7 @@ def warn(
     user: User, chat: Chat, reason: str, message: Message, warner: User = None
 ) -> str:
     if is_user_admin(chat, user.id):
-        # message.reply_text("Damn admins, They are too far to be One Punched!")
+        # message.reply_text("Damn admins, They are too far to be punched!")
         return
 
     if user.id in TIGERS:
@@ -120,7 +120,7 @@ def warn(
             [
                 [
                     InlineKeyboardButton(
-                        "🔘 Remove warn", callback_data="rm_warn({})".format(user.id)
+                        "Remove warn(admins only)", callback_data="rm_warn({})".format(user.id)
                     )
                 ]
             ]
