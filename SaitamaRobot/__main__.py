@@ -92,6 +92,7 @@ HELP_STRINGS = """
 )
 
 SAITAMA_IMG = "https://telegra.ph/file/cf3998ca2b4063879d849.jpg"
+NEZUKOIMGSTART = "https://telegra.ph/file/d059bad820d5f4bd6cddd.mp4"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
  You can support the project via [Paypal](ko-fi.com/sawada) or by contacting @Sawada \
@@ -239,6 +240,8 @@ def start(update: Update, context: CallbackContext):
                 )
             )     
     else:
+        update.effective_message.reply_video(
+               NEZUKOIMGSTART)
         update.effective_message.reply_text(
             "I'm awake already⚡⚡\n<b>Haven't slept since✨:</b> <code>{}</code>".format(
                 uptime
