@@ -11,7 +11,7 @@ from telegram import MessageEntity, Update
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext, Filters, MessageHandler, run_async
 
-AFK_VID = "https://telegra.ph/file/bbc91a59a85d21003c74e.jpg"
+AFK_VID = "https://telegra.ph/file/d79eb8e5c97fa54ac45fe.mp4"
 AFK_GROUP = 7
 AFK_REPLY_GROUP = 8
 
