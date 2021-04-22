@@ -93,6 +93,8 @@ HELP_STRINGS = """
 
 SAITAMA_IMG = "https://telegra.ph/file/cf3998ca2b4063879d849.jpg"
 NEZUKOIMGSTART = "https://telegra.ph/file/d059bad820d5f4bd6cddd.mp4"
+STICKERS = ("CAACAgUAAxkBAAPmYID04LDE8E87OOMdmsWf15S8FPYAApYBAALFNFhW2en88ynVKfUfBA"
+)
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
  You can support the project via [Paypal](ko-fi.com/sawada) or by contacting @Sawada \
@@ -202,6 +204,7 @@ def start(update: Update, context: CallbackContext):
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
         else:
+            update.effective_message.reply_sticker(STICKER)
             first_name = update.effective_user.first_name
             update.effective_message.reply_photo(
                 SAITAMA_IMG,
