@@ -11,6 +11,7 @@ from telegram import MessageEntity, Update
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext, Filters, MessageHandler, run_async
 
+AFK_VID = "https://telegra.ph/file/bbc91a59a85d21003c74e.jpg"
 AFK_GROUP = 7
 AFK_REPLY_GROUP = 8
 
@@ -38,6 +39,8 @@ def afk(update: Update, context: CallbackContext):
     sql.set_afk(update.effective_user.id, reason)
     fname = update.effective_user.first_name
     try:
+       update.effective_message.reply_video(
+                AFK_VID)
         update.effective_message.reply_text("{} is now away!{}".format(fname, notice))
     except BadRequest:
         pass
