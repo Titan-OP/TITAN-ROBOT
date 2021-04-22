@@ -93,7 +93,11 @@ HELP_STRINGS = """
 
 SAITAMA_IMG = "https://telegra.ph/file/cf3998ca2b4063879d849.jpg"
 NEZUKOIMGSTART = "https://telegra.ph/file/d059bad820d5f4bd6cddd.mp4"
-STICKERS = ("CAACAgUAAxkBAAPmYID04LDE8E87OOMdmsWf15S8FPYAApYBAALFNFhW2en88ynVKfUfBA"
+STICKERS = ("CAACAgUAAxkBAAPmYID04LDE8E87OOMdmsWf15S8FPYAApYBAALFNFhW2en88ynVKfUfBA",
+            "CAACAgUAAxkBAAPoYID05MSJuagmIP1OEOW8UII0690AAsoBAAJrP1lW_eNtzmoamGQfBA",
+            "CAACAgUAAxkBAAPjYID01BOHBioVWMfID5glMhLcdmIAAkQBAAJ3J3lW7M7yl-nK97gfBA",
+            "CAACAgUAAxkBAAPkYID02WWd9C5bhL_tgb57nkGwRX4AAgsCAAJIqlBWy4sDAze26WYfBA",
+            "CAACAgUAAxkBAAPlYID02y_Orb2T5RVGYLHfeEYhZGcAAqsBAAI2_2BWJkKvlefj-RsfBA",
 )
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
@@ -204,7 +208,7 @@ def start(update: Update, context: CallbackContext):
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
         else:
-            update.effective_message.reply_sticker(STICKERS)
+            update.effective_message.reply_sticker(random.choice(STICKERS))
             first_name = update.effective_user.first_name
             update.effective_message.reply_photo(
                 SAITAMA_IMG,
