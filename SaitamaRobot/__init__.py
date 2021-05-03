@@ -7,6 +7,8 @@ import spamwatch
 import telegram.ext as tg
 from telethon import TelegramClient
 from pyrogram import Client, errors
+from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
+from Python_ARQ import ARQ
 
 StartTime = time.time()
 
@@ -70,6 +72,7 @@ if ENV:
     API_HASH = os.environ.get("API_HASH", None)
     DB_URI = os.environ.get("DATABASE_URL")
     DONATION_LINK = os.environ.get("DONATION_LINK")
+    MONGO_DB_URI = os.environ.get("MONGO_DB_URI", None)
     LOAD = os.environ.get("LOAD", "").split()
     NO_LOAD = os.environ.get("NO_LOAD", "translation").split()
     DEL_CMDS = bool(os.environ.get("DEL_CMDS", False))
@@ -81,6 +84,7 @@ if ENV:
     TIME_API_KEY = os.environ.get("TIME_API_KEY", None)
     AI_API_KEY = os.environ.get("AI_API_KEY", None)
     WALL_API = os.environ.get("WALL_API", None)
+    BOT_ID = int(os.environ.get("BOT_ID", None))
     SUPPORT_CHAT = os.environ.get("SUPPORT_CHAT", None)
     SPAMWATCH_SUPPORT_CHAT = os.environ.get("SPAMWATCH_SUPPORT_CHAT", None)
     SPAMWATCH_API = os.environ.get("SPAMWATCH_API", None)
@@ -141,7 +145,9 @@ else:
     LOAD = Config.LOAD
     NO_LOAD = Config.NO_LOAD
     DEL_CMDS = Config.DEL_CMDS
+    BOT_ID = Config.BOT_ID
     STRICT_GBAN = Config.STRICT_GBAN
+    MONGO_DB_URI = Config.MONGO_DB_URI
     WORKERS = Config.WORKERS
     BAN_STICKER = Config.BAN_STICKER
     ALLOW_EXCL = Config.ALLOW_EXCL
@@ -175,6 +181,9 @@ else:
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 telethn = TelegramClient("saitama", API_ID, API_HASH)
 pbot = Client("senkuPyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
+mongo_client = MongoClient(MONGO_DB_URI)
+arq = ARQ(ARQ_API)
+db = mongo_client.nezuko
 dispatcher = updater.dispatcher
 
 DRAGONS = list(DRAGONS) + list(DEV_USERS)
