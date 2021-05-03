@@ -6,7 +6,6 @@ requests
 sqlalchemy==1.3.20
 python-telegram-bot==12.8
 psycopg2-binary
-motor
 pymongo
 feedparser
 pynewtonmath
@@ -53,3 +52,4 @@ pySmartDL
 validators
 youtube_dl
 html2text
+motor
