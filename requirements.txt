@@ -52,4 +52,4 @@ pySmartDL
 validators
 youtube_dl
 html2text
-motor
+
