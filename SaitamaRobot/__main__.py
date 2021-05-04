@@ -77,10 +77,12 @@ PM_START_TEXT = """
 Hey there {}! My name is *{}*
 I'm here to help you to manage your group easily.
 Just add me to your group,by clicking the button below.
+By clicking /help you can see my some blood demon arts!!. 
 """
 
 HELP_STRINGS = """
-*Main* commands available [:](https://telegra.ph/file/5dac823edd011f3d2edbb.jpg)
+Hola, some of my blood demon arts are down.
+*Main* demon arts available [:](https://telegra.ph/file/5dac823edd011f3d2edbb.jpg)
 
  ➥ /help: PM's you this message.
  ➥ /help <module name>: PM's you info about that module.
@@ -98,9 +100,7 @@ STICKERS = ("CAACAgUAAxkBAAPmYID04LDE8E87OOMdmsWf15S8FPYAApYBAALFNFhW2en88ynVKfU
 )
             
 DONATE_STRING = """Heya, glad to hear you want to donate!
- You can support the project via [Paypal](ko-fi.com/sawada) or by contacting @Sawada \
- Supporting isnt always financial! \
- Those who cannot provide monetary support are welcome to help us develop the bot at @OnePunchDev."""
+ But we don't want donations. Support us by joining @nezukosupport1"""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -218,25 +218,25 @@ def start(update: Update, context: CallbackContext):
                     [
                         [
                         InlineKeyboardButton(
-                            text=" add nezuko to group  ",
+                            text=" ▪️add NEZUKO to group▪️ ",
                             url="t.me/nezuko13_bot?startgroup=true".format(
                                 context.bot.username)),
                          InlineKeyboardButton(
-                             text=" Updates ",
+                             text=" ⚡Updates⚡ ",
                              url="https://t.me/NezukoUpdates1")
                      ],
                      [
                         InlineKeyboardButton(
-                            text=" Help ",
+                            text=" 🔹Help🔹 ",
                             url="https://t.me/nezuko13_bot?start=help"),
                          InlineKeyboardButton(
-                            text=" Network ",
+                            text=" ✨Network✨ ",
                              url="https://t.me/AnimeKraze")        
                        
                      ],
                      [
                         InlineKeyboardButton(
-                             text=" support  ",
+                             text=" 🔸KAMADO🔸  ",
                              url="https://t.me/nezukosupport1")
                     
                     ]
