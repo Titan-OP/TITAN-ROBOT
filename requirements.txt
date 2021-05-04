@@ -54,3 +54,4 @@ youtube_dl
 html2text
 motor
 dnspython
+python-arq
