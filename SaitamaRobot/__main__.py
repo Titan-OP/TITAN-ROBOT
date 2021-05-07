@@ -216,32 +216,14 @@ def start(update: Update, context: CallbackContext):
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                        InlineKeyboardButton(
-                            text=" add nezuko to group  ",
-                            url="t.me/nezuko13_bot?startgroup=true".format(
-                                context.bot.username)),
-                         InlineKeyboardButton(
-                             text=" Updates ",
-                             url="https://t.me/NezukoUpdates1")
-                     ],
-                     [
-                        InlineKeyboardButton(
-                            text=" Help ",
-                            url="https://t.me/nezuko13_bot?start=help"),
-                         InlineKeyboardButton(
-                            text=" Network ",
-                             url="https://t.me/AnimeKraze")        
-                       
-                     ],
-                     [
-                        InlineKeyboardButton(
-                             text=" support  ",
-                             url="https://t.me/nezukosupport1")
-                    
+                            InlineKeyboardButton(
+                                text="Add Pɧơɛnıх to your group.",
+                                url="t.me/{}?startgroup=botstart".format(bot.username),
+                            )
+                        ]
                     ]
-                   ]
-                )
-            )     
+                ),
+            )
     else:
         update.effective_message.reply_video(
                NEZUKOIMGSTART)
