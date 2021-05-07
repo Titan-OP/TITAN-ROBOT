@@ -82,7 +82,7 @@ By clicking /help you can see my some blood demon arts!!.
 
 HELP_STRINGS = """
 Hola, some of my blood demon arts are down.
-*Main* demon arts available [:](https://telegra.ph/file/5dac823edd011f3d2edbb.jpg)
+*Main* demon arts available [:](https://telegra.ph/file/44af02a7aafeaa5cc1a97.jpg)
 
  ➥ /help: PM's you this message.
  ➥ /help <module name>: PM's you info about that module.
@@ -94,7 +94,7 @@ Hola, some of my blood demon arts are down.
     "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n",
 )
 
-SAITAMA_IMG = "https://telegra.ph/file/cf3998ca2b4063879d849.jpg"
+SAITAMA_IMG = "https://telegra.ph/file/fe7ab050fe22c8762431c.jpg"
 NEZUKOIMGSTART = "https://telegra.ph/file/d059bad820d5f4bd6cddd.mp4"
 STICKERS = ("CAACAgUAAxkBAAPmYID04LDE8E87OOMdmsWf15S8FPYAApYBAALFNFhW2en88ynVKfUfBA"
 )
