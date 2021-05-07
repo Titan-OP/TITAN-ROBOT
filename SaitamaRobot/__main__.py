@@ -219,7 +219,11 @@ def start(update: Update, context: CallbackContext):
                         InlineKeyboardButton(
                                 text="Add NEZUKO to your group.",
                                 url="t.me/nezuko13_bot?startgroup=true".format(context.bot.username)),
-
+                        [
+                        InlineKeyboardButton(
+                             text=" 🔸KAMADO🔸  ",
+                             url="https://t.me/nezukosupport1")
+                   
                      ]
                    ]
                 )
