@@ -216,14 +216,14 @@ def start(update: Update, context: CallbackContext):
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton(
+                        InlineKeyboardButton(
                                 text="Add NEZUKO to your group.",
                                 url="t.me/nezuko13_bot?startgroup=true".format(context.bot.username)),
-                            ]
-                        ]
-                    ]
-                ),
-            )
+
+                     ]
+                   ]
+                )
+            )                    
     else:
         update.effective_message.reply_video(
                NEZUKOIMGSTART)
