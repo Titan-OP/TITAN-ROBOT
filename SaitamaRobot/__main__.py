@@ -223,7 +223,7 @@ def start(update: Update, context: CallbackContext):
                         [
                         InlineKeyboardButton(
                              text=" 🔸KAMADO🔸  ",
-                             url="https://t.me/nezukosupport1")
+                             callback_data="aboutmanu_")
                    
                      ]
                    ]
