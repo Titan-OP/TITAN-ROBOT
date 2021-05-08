@@ -22,3 +22,5 @@ Now send the bot /start, If it doesn't respond go to https://dashboard.heroku.co
 
 ## Credits 📍
 * [kaneki](https://t.me/ken_kenaki)
+* [MadBoy](https://telegram.me/Disheartened_007)
+* [Pranav](https://telegram.me/Gmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm)
