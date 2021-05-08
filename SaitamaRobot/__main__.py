@@ -273,7 +273,7 @@ def SaitamaRobot_about_callback(update, context):
                  f"\n\n I have the normal GROUP MANAGING functions like flood control, a warning system etc but I mainly have the advanced and handy Antispam system and the banning system which safegaurds and helps your group from spammers."
                  f"\n\nI Can Manage Your Groups Smoothly, With Some Special Features. [◖⚆ᴥ⚆◗](https://telegra.ph/file/7f6a4d656e89553340af9.jpg)."
                  f"\n\nYou Can Know More About Me By Clicking The Below Buttons."
-            parse_mode=ParseMode.MARKDOWN
+            parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
