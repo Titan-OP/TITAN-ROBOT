@@ -273,7 +273,30 @@ def SaitamaRobot_about_callback(update, context):
                  f"\n\n I have the normal GROUP MANAGING functions like flood control, a warning system etc but I mainly have the advanced and handy Antispam system and the SIBYL banning system which safegaurds and helps your group from spammers."
                  f"\n\nI Can Manage Your Groups Smoothly, With Some Special Features. [◖⚆ᴥ⚆◗](https://telegra.ph/file/7f6a4d656e89553340af9.jpg)."
                  f"\n\nYou Can Know More About Me By Clicking The Below Buttons."
-)
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                  [
+                    InlineKeyboardButton(text="How To Use Me", callback_data="aboutmanu_howto"),
+                    InlineKeyboardButton(text="T & C", callback_data="aboutmanu_tac")
+                  ],
+                 [
+                    InlineKeyboardButton(text="❔Help & Commands", callback_data="help_back")
+                 ],
+                 [
+                    InlineKeyboardButton(text="Back", callback_data="aboutmanu_back")
+                 ] 
+                ]
+            ),
+        )
+    elif query.data == "aboutmanu_back":
+        query.message.edit_text(
+                PM_START_TEXT,
+                reply_markup=InlineKeyboardMarkup(buttons),
+                parse_mode=ParseMode.MARKDOWN,
+                timeout=60, 
+            )
             
 @run_async
 def help_button(update, context):
