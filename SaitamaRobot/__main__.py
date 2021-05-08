@@ -216,7 +216,7 @@ def start(update: Update, context: CallbackContext):
                         ],
                         [
                         InlineKeyboardButton(
-                             text=" 🔸KAMADO🔸  ",
+                             text=" 🔸info🔸  ",
                              callback_data="aboutmanu_")
                    
                      ]
