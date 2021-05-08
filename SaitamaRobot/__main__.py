@@ -264,13 +264,6 @@ def error_callback(update: Update, context: CallbackContext):
         # handle all other telegram related errors
 
 @run_async
-def SaitamaRobot_about_callback(update, context):
-    query = update.callback_query
-    if query.data == "aboutmanu_":
-        query.message.edit_text(
-            text=f"*Hi again The name's" )
-
-@run_async
 def help_button(update, context):
     query = update.callback_query
     mod_match = re.match(r"help_module\((.+?)\)", query.data)
