@@ -264,6 +264,18 @@ def error_callback(update: Update, context: CallbackContext):
         # handle all other telegram related errors
 
 @run_async
+def SaitamaRobot_about_callback(update, context):
+    query = update.callback_query
+    if query.data == "aboutmanu_":
+        query.message.edit_text(
+            text=f"*Hi again! The name's {dispatcher.bot.first_name}. \n\nAs  You I'm An Anime Themed Group Management Bot.* "
+                 f"\n\n Join [Updates Channel](https://t.me/SuzuyaUpdates) To Keep Yourself Updated About {dispatcher.bot.first_name}."
+                 f"\n\n I have the normal GROUP MANAGING functions like flood control, a warning system etc but I mainly have the advanced and handy Antispam system and the SIBYL banning system which safegaurds and helps your group from spammers."
+                 f"\n\nI Can Manage Your Groups Smoothly, With Some Special Features. [◖⚆ᴥ⚆◗](https://telegra.ph/file/7f6a4d656e89553340af9.jpg)."
+                 f"\n\nYou Can Know More About Me By Clicking The Below Buttons."
+)
+            
+@run_async
 def help_button(update, context):
     query = update.callback_query
     mod_match = re.match(r"help_module\((.+?)\)", query.data)
