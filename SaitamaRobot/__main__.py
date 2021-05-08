@@ -274,7 +274,7 @@ def SaitamaRobot_about_callback(update, context):
     query = update.callback_query
     if query.data == "aboutmanu_":
         query.message.edit_text(
-            text
+            text=f"*Hi again The name's" )
 
 @run_async
 def help_button(update, context):
