@@ -205,6 +205,7 @@ def start(update: Update, context: CallbackContext):
              
             
         else:
+            update.effective_message.reply_photo(SAITAMA_IMG)
             update.effective_message.reply_text(
                 PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
@@ -253,8 +254,8 @@ def SaitamaRobot_about_callback(update, context):
         query.message.edit_text(
             text=f"*Hi again! I'm NEZUKO from Kimetsu no yaiba, I'm a group management bot .* "
                  f"\n\n Join [Updates Channel](https://t.me/nezukoupdates1) To Keep Yourself Updated About NEZUKO."
-                 f"\n\n I have the normal GROUP MANAGING functions like flood control, a warning system etc but I mainly have the advanced and handy Antispam system and the SIBYL banning system which safegaurds and helps your group from spammers."
-                 f"\n\nI Can Manage Your Groups Smoothly, With Some Special Features. [◖⚆ᴥ⚆◗](https://telegra.ph/file/7f6a4d656e89553340af9.jpg)."
+                 f"\n\n join [Support Channel](https://t.me/nezukosupport1) To ask queries,give suggestions and report bugs about NEZUKO."
+                 f"\n\nI Can Manage Your Groups Smoothly, With Some Special Features."
                  f"\n\nYou Can Know More About Me By Clicking The Below Buttons.",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
@@ -265,10 +266,10 @@ def SaitamaRobot_about_callback(update, context):
                     InlineKeyboardButton(text="T & C", callback_data="aboutmanu_tac")
                   ],
                  [
-                    InlineKeyboardButton(text="❔Help & Commands", callback_data="help_back")
+                    InlineKeyboardButton(text="Help & Commands", callback_data="help_back")
                  ],
                  [
-                    InlineKeyboardButton(text="Back", callback_data="aboutmanu_back")
+                    InlineKeyboardButton(text="🔹Back🔹", callback_data="aboutmanu_back")
                  ] 
                 ]
             ),
@@ -285,7 +286,7 @@ def SaitamaRobot_about_callback(update, context):
         query.message.edit_text(
             text=f"* ｢ BASIC HELP 」*"
                  f"\nIf You Can Also Add {dispatcher.bot.first_name} To Your Chats By Clicking [Here](http://t.me/{dispatcher.bot.username}?startgroup=true) And Selecting Chat. \n"
-                 f"\n\nYou Can Know Main commands of {dispatcher.bot.first_name} by Just Clicking [Here](https://telegra.ph/SUZUYA-GM-BOT-12-16).\n"
+                 f"\n\nYou Can Know Main commands of {dispatcher.bot.first_name} by hitting /help .\n"
                  f"",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
@@ -299,12 +300,12 @@ def SaitamaRobot_about_callback(update, context):
     elif query.data == "aboutmanu_credit":
         query.message.edit_text(
             text=f"*{dispatcher.bot.first_name} Is A Powerful Bot For Managing Groups With Additional Features.*"
-                 f"\n\nFork Of [Shoko](https://github.com/gizmostuffin/Shoko) + [Saitama](https://github.com/AnimeKaizoku/SaitamaRobot)."
+                 f"\n\nI'm a fork of Saitama."
                  f"\n\n{dispatcher.bot.first_name}'s Licensed Under The GNU _(General Public License v3.0)_"
-                 f"\n\nIf Any Question About {dispatcher.bot.first_name}, \nLet Us Know At @{SUPPORT_CHAT}.",
+                 f"\n\nIf Any Question About {dispatcher.bot.first_name}, \nLet Us Know At @nezukosupport1.",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Back", callback_data="aboutmanu_tac")]]),
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="🔹Back🔹", callback_data="aboutmanu_tac")]]),
         )
     elif query.data == "aboutmanu_permis":
         query.message.edit_text(
@@ -352,18 +353,18 @@ def SaitamaRobot_about_callback(update, context):
                  f"\n✪ Watch your group, if someone \n  spamming your group, you can \n  use report feature from your \n  Telegram Client."
                  f"\n✪ Make sure antiflood is enabled, so \n  nobody can flood/spam your group."
                  f"\n✪ Do not spam commands, buttons, \n  or anything in bot PM, else you will \n  be <b>Gbanned</b>."
-                 f"\n✪ If you need to ask anything about \n  this bot, Go @{SUPPORT_CHAT}."
-                 f"\n✪ If you asking nonsense in Support \n  Chat, you will get warned/banned."
+                 f"\n✪ If you need to ask anything about \n  this bot, Go @nezukosupport1."
+                 f"\n✪ If you asking nonsense in Support \n  Chat, you will get warned."
                  f"\n✪ Sharing any files/videos others \n  than about bot in Support Chat is \n  prohibited."
                  f"\n✪ Sharing NSFW in Support Chat,\n  will reward you GBAN \n  and reported to Telegram as well."
-                 f"\n\nFor any kind of help, related to this bot, Join @{SUPPORT_CHAT}."
+                 f"\n\nFor any kind of help, related to this bot, Join @nezukosupport1."
                  f"\n\n<i>Terms & Conditions will be changed anytime</i>\n",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
                 [
                   [
                     InlineKeyboardButton(text="Credits", callback_data="aboutmanu_credit"),
-                    InlineKeyboardButton(text="Back", callback_data="aboutmanu_")
+                    InlineKeyboardButton(text="🔹Back🔹", callback_data="aboutmanu_")
                   ]])
         )
 
@@ -697,7 +698,7 @@ def main():
     
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "I am now online!")
+            dispatcher.bot.sendMessage(f"@nezukosupport1", "OWO,I am now online!")
         except Unauthorized:
             LOGGER.warning(
                 "Bot isnt able to send message to support_chat, go and check!")
