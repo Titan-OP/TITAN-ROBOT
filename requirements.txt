@@ -52,4 +52,5 @@ validators
 youtube_dl
 html2text
 motor
-pymongo
+dnspython
+python-arq
