@@ -5,6 +5,8 @@ import time
 import spamwatch
 
 import telegram.ext as tg
+from Python_ARQ import ARQ
+from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
 from telethon import TelegramClient
 from pyrogram import Client, errors
 
@@ -76,6 +78,7 @@ if ENV:
     STRICT_GBAN = bool(os.environ.get("STRICT_GBAN", False))
     WORKERS = int(os.environ.get("WORKERS", 8))
     BAN_STICKER = os.environ.get("BAN_STICKER", "CAADAgADOwADPPEcAXkko5EB3YGYAg")
+    ARQ_API = os.environ.get("ARQ_API_BASE_URL", None)
     ALLOW_EXCL = os.environ.get("ALLOW_EXCL", False)
     CASH_API_KEY = os.environ.get("CASH_API_KEY", None)
     TIME_API_KEY = os.environ.get("TIME_API_KEY", None)
