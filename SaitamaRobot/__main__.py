@@ -37,6 +37,7 @@ from SaitamaRobot import (
     TOKEN,
     URL,
     WEBHOOK,
+    WHITELIST_CHATS,
     BL_CHATS,
     pbot,
     SUPPORT_CHAT,
