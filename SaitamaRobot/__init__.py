@@ -72,6 +72,7 @@ if ENV:
     API_HASH = os.environ.get("API_HASH", None)
     DB_URI = os.environ.get("DATABASE_URL")
     DONATION_LINK = os.environ.get("DONATION_LINK")
+    MONGO_DB_URI = os.environ.get("MONGO_DB_URI", None)
     LOAD = os.environ.get("LOAD", "").split()
     NO_LOAD = os.environ.get("NO_LOAD", "translation").split()
     DEL_CMDS = bool(os.environ.get("DEL_CMDS", False))
@@ -145,6 +146,7 @@ else:
     NO_LOAD = Config.NO_LOAD
     DEL_CMDS = Config.DEL_CMDS
     STRICT_GBAN = Config.STRICT_GBAN
+    MONGO_DB_URI = Config.MONGO_DB_URI
     WORKERS = Config.WORKERS
     BAN_STICKER = Config.BAN_STICKER
     ALLOW_EXCL = Config.ALLOW_EXCL
@@ -178,6 +180,9 @@ else:
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 telethn = TelegramClient("saitama", API_ID, API_HASH)
 pbot = Client("senkuPyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
+mongo_client = MongoClient(MONGO_DB_URI)
+arq = ARQ(ARQ_API)
+db = mongo_client.nezuko
 dispatcher = updater.dispatcher
 
 DRAGONS = list(DRAGONS) + list(DEV_USERS)
