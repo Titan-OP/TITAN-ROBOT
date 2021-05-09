@@ -54,8 +54,6 @@ from SaitamaRobot.modules.helper_funcs.misc import paginate_modules
 from SaitamaRobot.modules.helper_funcs.alternate import typing_action
 from SaitamaRobot.modules.helper_funcs.admin_rights import user_can_ban
 
-SAITAMA_IMG = "https://telegra.ph/file/fe7ab050fe22c8762431c.jpg"
-
 PM_START_TEXT = """
 Hola, I'm *Nezuko*
 I'm a anime based group management bot 
@@ -202,7 +200,6 @@ def start(update: Update, context: CallbackContext):
              
             
         else:
-            update.effective_message.reply_photo(SAITAMA_IMG)
             update.effective_message.reply_text(
                 PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
