@@ -65,7 +65,7 @@ Hola, I'm *Nezuko*
 • I'm Here To Help You Manage \n    Your Groups! Add me to your group by clicking [here](t.me/{}?startgroup=true)
 • Hit /help To Find Out My demon arts.
 
-Join My [Support Chat](t.me/nezukosupport1) To Get Information & Help
+Join My [Support Chat](https://t.me/nezukosupport1) To Get Information & Help
 """
 
 buttons = [
