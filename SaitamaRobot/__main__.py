@@ -67,19 +67,9 @@ Hit /help to see some of my demon arts
 """
 
 buttons = [
-    [        
-        InlineKeyboardButton(
-        text="INFO", callback_data="aboutmanu_"
-        ),
-    ],
-    [        
-        InlineKeyboardButton(
-        text="demon arts", callback_data="help_back"
-        ),
-    ],
     [
         InlineKeyboardButton(
-        text="💫 Add Nezuko to your group 💫", url="t.me/nezuko13_bot?startgroup=true"
+        text="About", callback_data="aboutmanu_"
         ),
     ]
 ]
