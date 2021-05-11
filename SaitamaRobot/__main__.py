@@ -61,11 +61,12 @@ SAITAMA_IMG = "https://telegra.ph/file/fe7ab050fe22c8762431c.jpg"
 
 PM_START_TEXT = """
 Hola, I'm *Nezuko* 
+From kimetsu no yaiba 
 
-• I'm Here To Help You Manage \n    Your Groups! Add me to your group by clicking [here](t.me/nezuko13_bot?startgroup=true)
-• Hit /help To Find Out My demon arts.
+•add me to group to make management easy 
+•hit /help to see some of my demon arts
 
-Join My [Support Chat](@nezukosupport1) To Get Information & Help
+Any questions regarding me? Head to @nezukosupport1
 """
 
 buttons = [
