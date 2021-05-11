@@ -56,17 +56,15 @@ from SaitamaRobot.modules.helper_funcs.alternate import typing_action
 from SaitamaRobot.modules.helper_funcs.admin_rights import user_can_ban
 from SaitamaRobot.modules.helper_funcs.readable_time import get_readable_time
 
-SAITAMA_IMG = "https://telegra.ph/file/fe7ab050fe22c8762431c.jpg"
-
 
 PM_START_TEXT = """
 Hola, I'm *Nezuko* 
 From kimetsu no yaiba 
 
-•add me to group to make management easy 
-•hit /help to see some of my demon arts
+[•](https://telegra.ph/file/fe7ab050fe22c8762431c.jpg)add me to group to make management easy 
+[•](https://telegra.ph/file/fe7ab050fe22c8762431c.jpg)hit /help to see some of my demon arts
 
-Any questions regarding me? Head to @nezukosupport1
+Any questions regarding me? Head to [support group](/t.me/nezukosupport1)
 """
 
 buttons = [
@@ -198,7 +196,6 @@ def start(update: Update, context: CallbackContext):
              
             
         else:
-            update.effective_message.reply_photo(SAITAMA_IMG)
             update.effective_message.reply_text(
                 PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
