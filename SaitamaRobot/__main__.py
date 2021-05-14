@@ -64,7 +64,7 @@ From kimetsu no yaiba
 [•](https://telegra.ph/file/fe7ab050fe22c8762431c.jpg)add me to group to make management easy 
 [•](https://telegra.ph/file/fe7ab050fe22c8762431c.jpg)hit /help to see some of my demon arts
 
-Any questions regarding me? Head to [support group](/t.me/nezukosupport1)
+Any questions regarding me? Head to [support group](https://t.me/nezukosupport1)
 """
 
 buttons = [
@@ -85,6 +85,8 @@ HELP_STRINGS = """
    ◔ in a Group: will redirect you to pm, with all that chat's settings.
 """
 
+HELP_IMG = "https://telegra.ph/file/39ee2ab282a111450407e.jpg"
+HELP_MSG = "Click the button below to get help manu in your pm."
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -435,8 +437,8 @@ def get_help(update, context):
     # ONLY send help in PM
     if chat.type != chat.PRIVATE:
 
-        update.effective_message.reply_text(
-            "Click the button below to get help manu in your pm.",
+        update.effective_message.reply_photo(
+            "HELP_IMG,HELP_MSG",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
