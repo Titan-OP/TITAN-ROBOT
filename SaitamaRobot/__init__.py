@@ -6,7 +6,6 @@ import spamwatch
 
 import telegram.ext as tg
 from telethon import TelegramClient
-from Python_ARQ import ARQ
 from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
 from pyrogram import Client, errors
 
@@ -183,7 +182,6 @@ updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 telethn = TelegramClient("saitama", API_ID, API_HASH)
 pbot = Client("senkuPyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 mongo_client = MongoClient(MONGO_DB_URI)
-arq = ARQ(ARQ_API)
 db = mongo_client.nezuko
 dispatcher = updater.dispatcher
 
