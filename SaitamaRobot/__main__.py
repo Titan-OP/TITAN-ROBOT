@@ -72,6 +72,8 @@ def get_readable_time(seconds: int) -> str:
 
     return ping_time
 
+app = Client(bot_token=bot_token)
+
 
 PM_START_TEXT = """
 Hey there {}! My name is *{}*
@@ -167,6 +169,11 @@ def test(update: Update, context: CallbackContext):
     # update.effective_message.reply_text("Hola tester! _I_ *have* `markdown`", parse_mode=ParseMode.MARKDOWN)
     update.effective_message.reply_text("This person edited a message")
     print(update.effective_message)
+
+@app.on_message(filters.command(["creator"]))
+async def creator(_, message):
+    await message.reply_text("https://github.com/Kody-K/")
+
 
 
 @run_async
