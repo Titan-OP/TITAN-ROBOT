@@ -3,6 +3,7 @@ import time
 import re
 from sys import argv
 from typing import Optional
+from pyrogram import Client
 
 from SaitamaRobot import (
     ALLOW_EXCL,
