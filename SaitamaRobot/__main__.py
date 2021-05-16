@@ -58,13 +58,14 @@ from SaitamaRobot.modules.helper_funcs.readable_time import get_readable_time
 
 
 PM_START_TEXT = """
-Hola, I'm *Nezuko* 
-From kimetsu no yaiba 
+Heyo there, {}!
+I'm *nezuko*, from *kimetsu no yaiba*
 
-[•](https://telegra.ph/file/fe7ab050fe22c8762431c.jpg)add me to group to make management easy 
-[•](https://telegra.ph/file/fe7ab050fe22c8762431c.jpg)hit /help to see some of my demon arts
+Im here to help your group management with ease. 
 
-Any questions regarding me? Head to [support group](https://t.me/nezukosupport1)
+Hit /help to see my demon arts
+
+•| [SUPPORT](https://t.me/nezukosupport1) | [ADD NEZUKO](t.me/{}?startgroup=true)
 """
 
 buttonss = [
@@ -279,7 +280,7 @@ def SaitamaRobot_about_callback(update, context):
     elif query.data == "aboutmanu_back":
         query.message.edit_text(
                 PM_START_TEXT,
-                reply_markup=InlineKeyboardMarkup(buttons),
+                reply_markup=InlineKeyboardMarkup(buttonss),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60, 
             )
