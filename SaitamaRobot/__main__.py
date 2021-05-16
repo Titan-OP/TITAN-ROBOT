@@ -58,7 +58,7 @@ from SaitamaRobot.modules.helper_funcs.readable_time import get_readable_time
 
 
 PM_START_TEXT = """
-Heyo there, {}!
+Heyo there!
 I'm [NEZUKO](https://telegra.ph/file/39ee2ab282a111450407e.jpg), from *kimetsu no yaiba*
 
 Im here to help your group management with ease. 
@@ -210,10 +210,8 @@ def start(update: Update, context: CallbackContext):
              
             
         else:
-            update.effective_message.reply_photo(
-                NEZUKO_IMG,
-                PM_START_TEXT.format(
-                    escape_markdown(first_name),
+            update.effective_message.reply_text(
+                PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttonss),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60, 
