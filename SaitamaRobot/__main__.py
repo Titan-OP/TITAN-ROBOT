@@ -67,7 +67,7 @@ From kimetsu no yaiba
 Any questions regarding me? Head to [support group](https://t.me/nezukosupport1)
 """
 
-buttons = [
+buttonss = [
     [
         InlineKeyboardButton(
         text="About", callback_data="aboutmanu_"
@@ -210,7 +210,7 @@ def start(update: Update, context: CallbackContext):
         else:
             update.effective_message.reply_text(
                 PM_START_TEXT,
-                reply_markup=InlineKeyboardMarkup(buttons),
+                reply_markup=InlineKeyboardMarkup(buttonss),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60, 
             )
