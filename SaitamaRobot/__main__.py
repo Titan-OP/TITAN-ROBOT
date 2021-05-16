@@ -87,12 +87,12 @@ HELP_STRINGS = """
 
 HELP_IMG = "https://telegra.ph/file/39ee2ab282a111450407e.jpg"
 HELP_MSG = "Click the button below to get help manu in your pm."
-START_MSG = "IM ALIVE"
+START_MSG = "Heya *nezuko* here!"
 
 buttons = [
     [
         InlineKeyboardButton(
-        text="SUPPORT ", url="t.me/nezukosupport1"
+        text="SUPPORT", url="t.me/nezukosupport1"
         ),
     ]
 ]
