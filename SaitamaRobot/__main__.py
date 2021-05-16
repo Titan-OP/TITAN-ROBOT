@@ -87,6 +87,16 @@ HELP_STRINGS = """
 
 HELP_IMG = "https://telegra.ph/file/39ee2ab282a111450407e.jpg"
 HELP_MSG = "Click the button below to get help manu in your pm."
+START_MSG = "IM ALIVE"
+
+buttons = [
+    [
+        InlineKeyboardButton(
+        text="SUPPORT ", url="t.me/nezukosupport1"
+        ),
+    ]
+]
+
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -206,10 +216,10 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_text(
-            "I'm awake already!\n<b>Haven't slept since:</b> <code>{}</code>"
-            .format(uptime),
-            parse_mode=ParseMode.HTML)
-   
+            START_MSG,
+            reply_markup=InlineKeyboardMarkup(buttons),
+                parse_mode=ParseMode.MARKDOWN,
+        )
 
 
 def error_handler(update, context):
