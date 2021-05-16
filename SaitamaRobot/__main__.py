@@ -59,13 +59,13 @@ from SaitamaRobot.modules.helper_funcs.readable_time import get_readable_time
 
 PM_START_TEXT = """
 Heyo there, {}!
-I'm *nezuko*, from *kimetsu no yaiba*
+I'm [NEZUKO](https://telegra.ph/file/39ee2ab282a111450407e.jpg), from *kimetsu no yaiba*
 
 Im here to help your group management with ease. 
 
 Hit /help to see my demon arts
 
-•| [SUPPORT](https://t.me/nezukosupport1) | [ADD NEZUKO](t.me/{}?startgroup=true)
+•| [SUPPORT](https://t.me/nezukosupport1) | [ADD NEZUKO](t.me/nezuko13_bot?startgroup=true) |•
 """
 
 buttonss = [
@@ -86,6 +86,7 @@ HELP_STRINGS = """
    ◔ in a Group: will redirect you to pm, with all that chat's settings.
 """
 
+NEZUKO_IMG = "https://telegra.ph/file/39ee2ab282a111450407e.jpg"
 HELP_IMG = "https://telegra.ph/file/39ee2ab282a111450407e.jpg"
 HELP_MSG = "Click the button below to get help manu in your pm."
 START_MSG = "Heya *nezuko* here!"
@@ -209,8 +210,10 @@ def start(update: Update, context: CallbackContext):
              
             
         else:
-            update.effective_message.reply_text(
-                PM_START_TEXT,
+            update.effective_message.reply_photo(
+                NEZUKO_IMG,
+                PM_START_TEXT.format(
+                    escape_markdown(first_name),
                 reply_markup=InlineKeyboardMarkup(buttonss),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60, 
