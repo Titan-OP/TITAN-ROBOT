@@ -67,15 +67,6 @@ From kimetsu no yaiba
 Any questions regarding me? Head to [support group](https://t.me/nezukosupport1)
 """
 
-buttons = [
-    [
-        InlineKeyboardButton(
-        text="About", callback_data="aboutmanu_"
-        ),
-    ]
-]
-
-
 HELP_STRINGS = """
 *Main Commands :*
 ✪ /start: Starts me! You've probably already used this.
@@ -210,10 +201,33 @@ def start(update: Update, context: CallbackContext):
         else:
             update.effective_message.reply_text(
                 PM_START_TEXT,
-                reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60, 
-            )
+                reply_markup=InlineKeyboardMarkup(
+                    [[
+                        InlineKeyboardButton(
+                            text="☑️ Add Saitama to your group",
+                            url="t.me/{}?startgroup=true".format(
+                                context.bot.username))
+                    ],
+                     [
+                         InlineKeyboardButton(
+                             text="🚑 Support Group",
+                             url=f"https://t.me/{SUPPORT_CHAT}"),
+                         InlineKeyboardButton(
+                             text="🔔 Updates Channel",
+                             url="https://t.me/OnePunchUpdates")
+                     ],
+                     [
+                         InlineKeyboardButton(
+                             text="🧾 Getting started guide",
+                             url="https://t.me/OnePunchUpdates/29")
+                     ],
+                     [
+                         InlineKeyboardButton(
+                             text="🗄 Source code",
+                             url="https://github.com/AnimeKaizoku/SaitamaRobot")
+                     ]]))      
     else:
         update.effective_message.reply_text(
             START_MSG,
