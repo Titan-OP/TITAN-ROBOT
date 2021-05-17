@@ -62,11 +62,27 @@ Heyo there!
 I'm [NEZUKO](https://telegra.ph/file/39ee2ab282a111450407e.jpg), from *kimetsu no yaiba*
 
 Im here to help your group management with ease. 
-
 Hit /help to see my demon arts
-
-•| [SUPPORT](https://t.me/nezukosupport1) | [ADD NEZUKO](t.me/nezuko13_bot?startgroup=true) |•
 """
+
+
+buttonss = [
+    [
+        InlineKeyboardButton(
+            text="About", callback_data="aboutmanu_"),
+    ],
+    [
+        InlineKeyboardButton(text="Support", url="t.me/nezukosupport1),
+        InlineKeyboardButton(text="updates", url="t.me/nezukoupdates1"),
+    ],
+    [  
+        InlineKeyboardButton(text="add NEZUKO to your group ", url="t.me/nezuko13_bot?startgroup=true"
+    ),
+    ], 
+    
+]
+
+
 
 HELP_STRINGS = """
 *Main Commands :*
@@ -203,28 +219,10 @@ def start(update: Update, context: CallbackContext):
         else:
             update.effective_message.reply_text(
                 PM_START_TEXT,
+                reply_markup=InlineKeyboardMarkup(buttonss)
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
-                reply_markup=InlineKeyboardMarkup( 
-                    [[
-                        InlineKeyboardButton(
-                            text="About",
-                            callback_data="aboutmanu_")
-                    ],
-                     [
-                         InlineKeyboardButton(
-                             text="Support Group",
-                             url=f"https://t.me/nezukosupport1"),
-                         InlineKeyboardButton(
-                             text="Updates Channel",
-                             url="https://t.me/nezukoupdates1")
-                     ],
-                     [
-                        InlineKeyboardButton(
-                            text="add NEZUKO to your group",
-                            url="t.me/nezuko13_bot?startgroup=true")
-                     ]]))
-            
+            )           
     else:
         update.effective_message.reply_text(
             START_MSG,
