@@ -72,7 +72,7 @@ buttonss = [
             text="About", callback_data="aboutmanu_"),
     ],
     [
-        InlineKeyboardButton(text="Support", url="t.me/nezukosupport1),
+        InlineKeyboardButton(text="Support", url="t.me/nezukosupport1"),
         InlineKeyboardButton(text="updates", url="t.me/nezukoupdates1"),
     ],
     [  
