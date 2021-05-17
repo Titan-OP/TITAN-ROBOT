@@ -85,12 +85,9 @@ buttonss = [
 
 
 HELP_STRINGS = """
-*Main Commands :*
-✪ /start: Starts me! You've probably already used this.
-✪ /help: Click this, I'll let you know about myself!
-✪ /settings: 
-   ◔ in PM: will send you your settings for all supported modules.
-   ◔ in a Group: will redirect you to pm, with all that chat's settings.
+Helpful Commands : .
+》 /start: Starts me! You've probably already used this.
+》 /help: Sends this message; I'll tell you more about myself!
 """
 
 NEZUKO_IMG = "https://telegra.ph/file/39ee2ab282a111450407e.jpg"
