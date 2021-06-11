@@ -18,10 +18,15 @@
 
 ----------------------------------------------------------------------------
 
+## тнιѕ вσт ιѕ αη∂ ℓαтєѕт νєяѕιση σƒ 
+
+<a href="https://telegram.me/Ultramanagerbot"><img src="https://img.shields.io/badge/BOT-%F0%9D%90%93%F0%9D%90%88%F0%9D%90%93%F0%9D%90%80%F0%9D%90%8D%20%F0%9D%9F%90.%F0%9D%9F%8E-orange.svg?style=for-the-badge&logo=Telegram"></a>
+
+----------------------------------------------------------------------------
 
 ## **¢нє¢к тнιѕ вσт ιη тєℓєgяαм** 
  
-<a href="https://telegram.me/titan1v0_bot"><img src="https://img.shields.io/badge/BOT-%F0%9D%90%93%F0%9D%90%88%F0%9D%90%93%F0%9D%90%80%F0%9D%90%8D%20%F0%9D%9F%90.%F0%9D%9F%8E-orange.svg?style=for-the-badge&logo=Telegram"></a>
+<a href="https://telegram.me/titan1v0_bot"><img src="https://img.shields.io/badge/BOT-𝐔𝐋𝐓𝐑𝐀 𝐌𝐀𝐍𝐀𝐆𝐄𝐑-orange.svg?style=for-the-badge&logo=Telegram"></a>
 
 ----------------------------------------------------------------------------
 
