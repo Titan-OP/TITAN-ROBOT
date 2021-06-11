@@ -58,26 +58,26 @@ from SaitamaRobot.modules.helper_funcs.readable_time import get_readable_time
 
 
 PM_START_TEXT = """
-Heyo there!
-I'm [TITAN 2.0](https://telegra.ph/file/b3848003d589bdbd971f3.jpg), from *kimetsu no yaiba*
+нєуα тнєяє!
+I'м [TITAN 2.0](https://telegra.ph/file/b3848003d589bdbd971f3.jpg), ƒяσм тє¢нησℓσgι¢αℓ ωσяℓ∂. 😜
 
-I am an Friendly Group Management Bot, and I will help you managing your group, Just add me there
+ι αм αη ƒяιєη∂ℓу gяσυρ мαηαgємєηт вσт, αη∂ ι ωιℓℓ нєℓρ уσυ мαηαgιηg уσυя gяσυρ, נυѕт α∂∂ мє тнєяє
 
-✯ Use /help to see my Commands ✯
+✯ υѕє /help тσ ѕєє му ¢σммαη∂ѕ ✯
 """
 
 
 buttonss = [
     [
         InlineKeyboardButton(
-            text="『 INFO 』", callback_data="aboutmanu_"),
+            text="『 ɪɴꜰᴏ 』", callback_data="aboutmanu_"),
     ],
     [
-        InlineKeyboardButton(text="Support", url="t.me/nezukosupport1"),
-        InlineKeyboardButton(text="updates", url="t.me/nezukoupdates1"),
+        InlineKeyboardButton(text="🔶 Sᴜᴘᴘᴏʀᴛ 🔶", url="t.me/TITANX_CHAT"),
+        InlineKeyboardButton(text="🔰 Uᴘᴅᴀᴛᴇꜱ 🔰", url="t.me/TITAN_UPDATES"),
     ],
     [  
-        InlineKeyboardButton(text="add NEZUKO to your group ", url="t.me/nezuko13_bot?startgroup=true"
+        InlineKeyboardButton(text="💫 α∂∂ Tɪᴛᴀɴ Bᴏᴛ тσ уσυя gяσυρ 💫", url="t.me/Titan1v0_bot?startgroup=true"
     ),
     ], 
     
@@ -86,20 +86,20 @@ buttonss = [
 
 
 HELP_STRINGS = """
-Helpful Commands : .
-》 /start: Starts me! You've probably already used this.
-》 /help: Sends this message; I'll tell you more about myself!
+𝐇𝐞𝐥𝐩𝐟𝐮𝐥 𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬 : .
+》》 /start : ѕтαятѕ мє! уσυ'νє ρяσвαвℓу αℓяєα∂у υѕє∂ тнιѕ.
+》》 /help : ѕєη∂ѕ тнιѕ мєѕѕαgє; ι'ℓℓ тєℓℓ уσυ мσяє αвσυт муѕєℓƒ!
 """
 
-NEZUKO_IMG = "https://telegra.ph/file/39ee2ab282a111450407e.jpg"
-HELP_IMG = "https://telegra.ph/file/39ee2ab282a111450407e.jpg"
-HELP_MSG = "Click the button below to get help manu in your pm."
-START_MSG = "Heya *nezuko* here!"
+TITAN_IMG = "https://telegra.ph/file/9864f94348bdc07aebd64.jpg"
+HELP_IMG = "https://telegra.ph/file/9864f94348bdc07aebd64.jpg"
+HELP_MSG = "¢ℓι¢к тнє вυттση вєℓσω тσ gєт му нєℓρ мєηυ ιη PM|DM."
+START_MSG = "нσℓα 𝐓𝐈𝐓𝐀𝐍 𝐗 ιѕ нєяє!"
 
 buttons = [
     [
         InlineKeyboardButton(
-        text="SUPPORT", url="t.me/nezukosupport1"
+        text="🔶 Sᴜᴘᴘᴏʀᴛ 🔶", url="t.me/TITANX_CHAT"
         ),
     ]
 ]
