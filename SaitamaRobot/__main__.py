@@ -59,17 +59,18 @@ from SaitamaRobot.modules.helper_funcs.readable_time import get_readable_time
 
 PM_START_TEXT = """
 Heyo there!
-I'm [NEZUKO](https://telegra.ph/file/39ee2ab282a111450407e.jpg), from *kimetsu no yaiba*
+I'm [TITAN 2.0](https://telegra.ph/file/b3848003d589bdbd971f3.jpg), from *kimetsu no yaiba*
 
-Im here to help your group management with ease. 
-Hit /help to see my demon arts
+I am an Friendly Group Management Bot, and I will help you managing your group, Just add me there
+
+✯ Use /help to see my Commands ✯
 """
 
 
 buttonss = [
     [
         InlineKeyboardButton(
-            text="About", callback_data="aboutmanu_"),
+            text="『 INFO 』", callback_data="aboutmanu_"),
     ],
     [
         InlineKeyboardButton(text="Support", url="t.me/nezukosupport1"),
