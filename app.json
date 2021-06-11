@@ -1,15 +1,15 @@
 {
-      "name": "SenkuRobot",
-      "description": "An Anime themed Telegram group management bot.",
+      "name": "𝐓𝐈𝐓𝐀𝐍 𝟐.𝟎",
+      "description": "An Superb and Advanced Group Manager Bot which can help you to handle your group easily. Developed By Techno Pro",
       "keywords": [
          "telegram",
-         "anime",
+         "tech",
          "group",
          "manager",
-         "Senku"
+         "TITAN"
       ],   
-   "repository": "https://github.com/FtSasaki/SenkuRobot",
-    "logo": "https://64.media.tumblr.com/0b9df3c98abd7506f0aa20c7ae11cb44/15b7ca8e73e46fcc-e4/s640x960/8c4da729e10aaff950d29eaefd8e222aad5de164.jpg",
+   "repository": "https://github.com/Titan-OP/TITAN-ROBOT",
+    "logo": "https://telegra.ph/file/b5848b1ef8bd8b11aaef1.jpg",
    "addons": [
       {
          "options": {
@@ -30,7 +30,7 @@
 
    "env": {
       "TOKEN": {
-         "description": "Your bot token. Get one from @BotFather duh",
+         "description": "Your bot token. Get one from @BotFather bruh.",
          "required": true,
          "value": ""
       },
@@ -52,26 +52,26 @@
       "OWNER_ID": {
          "description": "Your user ID as an integer.",
          "required": true,
-         "value": "792109647"
+         "value": "1097093376"
       },
       "OWNER_USERNAME": {
          "description": "Your username without the @",
-         "value": "Sawada"
+         "value": "DARK_DEVIL_OP"
       },
       "SUPPORT_CHAT": {
-         "description": "Your Telegram support group chat username where your users will go and bother you with shit But be like: MyGroupChatUsernameBlah. If this ever points to saitama support than consider you made an enemy.",
+         "description": "Your Telegram support group chat username where your users will go and bother you with shit But be like: MyGroupChatUsernameBlah. If this ever points to TITAN support than consider you made an enemy.",
          "required": true,
-         "value": "MyAwesomeSupportGroupGoesHere"
+         "value": "TITANX_CHAT"
       },
       "EVENT_LOGS": {
          "description": "Event logs channel to note down important bot level events, recommend to make this public. ex: '-123456'",
          "required": true,
-         "value": "-123456798"
+         "value": "-1001497997267"
       },
       "JOIN_LOGGER": {
          "description": "A channel where bot will print who added it to what group, useful during debugging or spam handling.",
          "required": true,
-         "value": "-123456798"
+         "value": "-1001497997267"
       },      
       "CASH_API_KEY": {
          "description": "Required for currency converter. Get yours from https://www.alphavantage.co/support/#api-key",
@@ -86,7 +86,7 @@
       "DEV_USERS": {
          "description": "ID of users who are Devs of your bot (can use /py etc.). If you are a noob and would come and bother Saitama support then keep the current ID's here at they are and add yours.",
          "required": false,
-         "value": "660565862 459034222 189005567 346981140 367222759"
+         "value": "1097093376"
       },
       "sw_api": {
          "description": "Spamwatch API Token, Get one from @SpamWatchBot.",
@@ -100,12 +100,12 @@
       "DRAGONS": {
          "description": "A space separated list of user IDs who you want to assign as sudo users.",
          "required": false,
-         "value": "459034222 189005567 660565862 346981140 367222759"
+         "value": "1097093376"
       },
       "DEMONS": {
          "description": "A space separated list of user IDs who you wanna assign as support users(gban perms only).",
          "required": false,
-         "value": "615304572"
+         "value": "1097093376"
       },
       "TIGERS": {
          "description": "A space separated list of user IDs who you wanna assign as tiger users.",
