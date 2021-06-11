@@ -62,7 +62,7 @@
 ----------------------------------------------------------------------------
 # Dᴇᴘʟᴏʏ:-
 
-[![DEPLOY HERE](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Titan-OP/TITAN-ROBOT/blob/main)
+[![DEPLOY HERE](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Titan-OP/TITAN-ROBOT/blob/master)
 
 ----------------------------------------------------------------------------
 ➥ 𝙸𝙵 𝚈𝙾𝚄 𝙻𝙸𝙺𝙴 𝚃𝙷𝙸𝚂 𝙱𝙾𝚃 𝚃𝙷𝙴𝙽 𝙿𝙻𝙴𝙰𝚂𝙴 𝙶𝙸𝚅𝙴 𝙸𝚃 𝙰 𝚂𝚃𝙰𝚁.
