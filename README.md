@@ -20,7 +20,7 @@
 
 ## тнιѕ вσт ιѕ αη∂ ℓαтєѕт νєяѕιση σƒ 
 
-<a href="https://telegram.me/Ultramanagerbot"><img src="https://img.shields.io/badge/BOT-𝐔𝐋𝐓𝐑𝐀 𝐌𝐀𝐍𝐀𝐆𝐄𝐑-orange.svg?style=for-the-badge&logo=Telegram"></a>
+<a href="https://telegram.me/Ultramanagerbot"><img src="https://img.shields.io/badge/BOT-𝐔𝐋𝐓𝐑𝐀 𝐌𝐀𝐍𝐀𝐆𝐄𝐑-red.svg?style=for-the-badge&logo=Telegram"></a>
 
 ----------------------------------------------------------------------------
 
