@@ -59,7 +59,7 @@ from SaitamaRobot.modules.helper_funcs.readable_time import get_readable_time
 
 PM_START_TEXT = """
 нєуα тнєяє!
-I'м [TITAN 2.0](https://telegra.ph/file/b3848003d589bdbd971f3.jpg), ƒяσм тє¢нησℓσgι¢αℓ ωσяℓ∂. 😜
+I'м [TITAN 2.0](https://telegra.ph/file/b3848003d589bdbd971f3.jpg) , ƒяσм тє¢нησℓσgι¢αℓ ωσяℓ∂. 😜
 
 ι αм αη ƒяιєη∂ℓу gяσυρ мαηαgємєηт вσт, αη∂ ι ωιℓℓ нєℓρ уσυ мαηαgιηg уσυя gяσυρ, נυѕт α∂∂ мє тнєяє
 
@@ -86,7 +86,7 @@ buttonss = [
 
 
 HELP_STRINGS = """
-𝐇𝐞𝐥𝐩𝐟𝐮𝐥 𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬 : .
+𝐇𝐞𝐥𝐩𝐟𝐮𝐥 𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬 σƒ [𝐓𝐈𝐓𝐀𝐍 𝟐.𝟎](https://telegra.ph/file/ccbe76d7adf8cadd4f75f.jpg) : .
 》》 /start : ѕтαятѕ мє! уσυ'νє ρяσвαвℓу αℓяєα∂у υѕє∂ тнιѕ.
 》》 /help : ѕєη∂ѕ тнιѕ мєѕѕαgє; ι'ℓℓ тєℓℓ уσυ мσяє αвσυт муѕєℓƒ!
 """
@@ -197,7 +197,7 @@ def start(update: Update, context: CallbackContext):
                     update.effective_chat.id, HELPABLE[mod].__help__,
                     InlineKeyboardMarkup([[
                         InlineKeyboardButton(
-                            text="《Back》", callback_data="help_back")
+                            text="✧ Bᴀᴄᴋ ✧", callback_data="help_back")
                     ]]))
 
             elif args[0].lower().startswith("stngs_"):
@@ -261,24 +261,24 @@ def SaitamaRobot_about_callback(update, context):
     query = update.callback_query
     if query.data == "aboutmanu_":
         query.message.edit_text(
-            text=f"*Hi again! I'm NEZUKO from Kimetsu no yaiba, I'm a group management bot .* "
-                 f"\n\n Join [Updates Channel](https://t.me/nezukoupdates1) To Keep Yourself Updated About NEZUKO."
-                 f"\n\n join [Support Channel](https://t.me/nezukosupport1) To ask queries,give suggestions and report bugs about NEZUKO."
-                 f"\n\nI Can Manage Your Groups Smoothly, With Some Special Features."
-                 f"\n\nYou Can Know More About Me By Clicking The Below Buttons.",
+            text=f"*нι αgαιη! ι'м 𝐓𝐈𝐓𝐀𝐍 𝟐.𝟎 ƒяσм тє¢нησℓσgι¢αℓ ωσяℓ∂  😜, ι'м α gяσυρ мαηαgємєηт вσт .* "
+                 f"\n\n נσιη [υρ∂αтєѕ ¢нαηηєℓ](https://t.me/TITAN_UPDATES) тσ кєєρ уσυяѕєℓƒ υρ∂αтє∂ αвσυт 𝐓𝐈𝐓𝐀𝐍 𝟐.𝟎."
+                 f"\n\n נσιη [ѕυρρσят ¢нαηηєℓ](https://t.me/TITANX_CHAT) тσ αѕк qυєяιєѕ,gινє ѕυggєѕтισηѕ αη∂ яєρσят вυgѕ αвσυт 𝐓𝐈𝐓𝐀𝐍 𝟐.𝟎."
+                 f"\n\nι ¢αη мαηαgє уσυя gяσυρѕ ѕмσσтнℓу, ωιтн ѕσмє ѕρє¢ιαℓ ƒєαтυяєѕ."
+                 f"\n\nуσυ ¢αη кησω мσяє αвσυт мє ву єχρℓσяιηg тнє вєℓσω вυттσηѕ.",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
                   [
-                    InlineKeyboardButton(text="How To Use Me", callback_data="aboutmanu_howto"),
-                    InlineKeyboardButton(text="T & C", callback_data="aboutmanu_tac")
+                    InlineKeyboardButton(text="Hᴏᴡ Tᴏ Uꜱᴇ Mᴇ", callback_data="aboutmanu_howto"),
+                    InlineKeyboardButton(text="ᴛ & ᴄ", callback_data="aboutmanu_tac")
                   ],
                  [
-                    InlineKeyboardButton(text="Help & Commands", callback_data="help_back")
+                    InlineKeyboardButton(text="Hᴇʟᴘ & Cᴏᴍᴍᴀɴᴅꜱ", callback_data="help_back")
                  ],
                  [
-                    InlineKeyboardButton(text="🔹Back🔹", callback_data="aboutmanu_back")
+                    InlineKeyboardButton(text="🔶 Bᴀᴄᴋ 🔶", callback_data="aboutmanu_back")
                  ] 
                 ]
             ),
@@ -293,17 +293,17 @@ def SaitamaRobot_about_callback(update, context):
         
     elif query.data == "aboutmanu_howto":
         query.message.edit_text(
-            text=f"* ｢ BASIC HELP 」*"
-                 f"\nIf You Can Also Add {dispatcher.bot.first_name} To Your Chats By Clicking [Here](http://t.me/{dispatcher.bot.username}?startgroup=true) And Selecting Chat. \n"
-                 f"\n\nYou Can Know Main commands of {dispatcher.bot.first_name} by hitting /help .\n"
+            text=f"* ｢ вαѕι¢ нєℓρ 」*"
+                 f"\nуσυ ¢αη αℓѕσ α∂∂ {dispatcher.bot.first_name} тσ уσυя ¢нαтѕ ву ¢ℓι¢кιηg [нєяє](http://t.me/{dispatcher.bot.username}?startgroup=true) αη∂ ѕєℓє¢тιηg ¢нαт. \n"
+                 f"\n\nуσυ ¢αη кησω мαιη ¢σммαη∂ѕ σƒ {dispatcher.bot.first_name} ву нιттιηg /help .\n"
                  f"",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup([[
-                InlineKeyboardButton(text="Admins Settings", callback_data="aboutmanu_permis"),
-                InlineKeyboardButton(text="Anti Spam", callback_data="aboutmanu_spamprot")],
+                InlineKeyboardButton(text="Aᴅᴍɪɴꜱ Sᴇᴛᴛɪɴɢꜱ", callback_data="aboutmanu_permis"),
+                InlineKeyboardButton(text="Aɴᴛɪ Sᴘᴀᴍ", callback_data="aboutmanu_spamprot")],
                 [
-                InlineKeyboardButton(text="Back", callback_data="aboutmanu_")]
+                InlineKeyboardButton(text="Bᴀᴄᴋ", callback_data="aboutmanu_")]
                                                ]),
         )
     elif query.data == "aboutmanu_credit":
