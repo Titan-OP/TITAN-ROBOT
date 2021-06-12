@@ -102,6 +102,11 @@ buttons = [
         text="🔶 Sᴜᴘᴘᴏʀᴛ 🔶", url="t.me/TITANX_CHAT"
         ),
     ]
+    [
+        InlineKeyboardButton(
+        text="👑 Cʀᴇᴀᴛᴏʀ 👑", url="t.me/DARK_DEVIL_OP"
+        ),
+    ]
 ]
 
 
@@ -308,10 +313,10 @@ def SaitamaRobot_about_callback(update, context):
         )
     elif query.data == "aboutmanu_credit":
         query.message.edit_text(
-            text=f"*{dispatcher.bot.first_name} Is A Powerful Bot For Managing Groups With Additional Features.*"
-                 f"\n\nI'm a fork of Saitama."
-                 f"\n\n{dispatcher.bot.first_name}'s Licensed Under The GNU _(General Public License v3.0)_"
-                 f"\n\nIf Any Question About {dispatcher.bot.first_name}, \nLet Us Know At @nezukosupport1.",
+            text=f"*{dispatcher.bot.first_name} ιѕ α ρσωєяƒυℓ вσт ƒσя мαηαgιηg gяσυρѕ ωιтн α∂∂ιтισηαℓ ƒєαтυяєѕ.*"
+                 f"\n\nι'м α υηιqυє gяσυρ мαηαgємєηт мα∂є ву (тєcнησ ρяσ)[Https://t.me/DARK_DEVIL_OP]."
+                 f"\n\n{dispatcher.bot.first_name} ιѕ ℓιcєηѕє∂ υη∂єя тнє GNU _(General Public License v3.0)_"
+                 f"\n\nιƒ αηу qυєѕтιση αвσυт {dispatcher.bot.first_name}, \nℓєт υѕ кησω αт [ѕυρρσят ¢нαηηєℓ](https://t.me/TITANX_CHAT).",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="🔹Back🔹", callback_data="aboutmanu_tac")]]),
